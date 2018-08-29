@@ -1,0 +1,1309 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title> Zoho Code - New Project </title>
+
+      <link rel="icon" type="image/png" href="../favicon.png"/>
+      
+      <!-- CHOSEN CSS -->    
+      <link href="../third-party/chosen/chosen.css"  rel="stylesheet" type="text/css">
+      
+      <!-- ZMENU CSS -->
+      <link href="../third-party/ui-components/css/zmenu.css" rel="stylesheet" type="text/css">
+      
+      <!-- ZSCROLL CSS -->
+      <link href="../third-party/ui-components/css/ui.zscroll.css" rel="stylesheet" type="text/css">
+      
+      <!-- ZTOOLTIP CSS -->
+      <link href="../third-party/ui-components/css/ztooltip.css" rel="stylesheet" type="text/css">
+      
+      <!-- ZPOPOVER CSS -->
+      <link href="../third-party/ui-components/css/zpopover.css" rel="stylesheet" type="text/css">
+
+      <!-- CODE CSS -->
+      <link href="../css/reset.css" rel="stylesheet" type="text/css">
+      <link href="../css/typography.css" rel="stylesheet" type="text/css">
+      <link href="../css/icons.css" rel="stylesheet" type="text/css">   
+      <link href="../css/component-custom.css" rel="stylesheet" type="text/css">
+      <link href="../css/base.css" rel="stylesheet" type="text/css">
+      
+      <!-- JQUERY MIN JS -->
+      <script src="../js/jquery.min-1.11.3.js"></script>
+      
+      
+      <!-- BOOTSTRAP JS -->
+      <script type="text/javascript" src="../third-party/bootstrap/bootstrap.js"></script>    
+
+      <!-- ZMENU -->
+      <script src="../third-party/ui-components/js/zcomponents.js" type="text/javascript"> </script> 
+      <script src="../third-party/ui-components/js/zposition.js" type="text/javascript"> </script> 
+      <script src="../third-party/ui-components/js/zeventhandler.js" type="text/javascript"></script>
+      <script src="../third-party/ui-components/js/zmenu.js" type="text/javascript"> </script>   
+      
+      <!-- ZTOOLTIP -->
+      <script src="../third-party/ui-components/js/ztooltip.js" type="text/javascript" ></script>
+      
+      <!-- ZPOPOVER -->
+      <script src="../third-party/ui-components/js/zfocushandler.js" type="text/javascript"></script>
+      <script src="../third-party/ui-components/js/zpopover.js" type="text/javascript"></script>
+      
+<!--
+       ZSCROLL 
+      <script src="../third-party/ui-components/js/ui.zscroll.js" type="text/javascript" ></script>
+-->
+      
+      <!-- MAIN JS -->   
+      <script src="../js/main.js" type="text/javascript"> </script>  
+      
+      <!-- CUSTOM COMPONENT JS -->   
+      <script src="../js/component-custom.js" type="text/javascript"> </script>  
+      
+    </head>
+    <body>
+     
+      <div id="svg-template"> </div>
+
+      <!-- LOADER --->
+      <div class="zc-loader-overlay" style="display:none"> 
+          <div class="zc-loading-content">
+            <div class="zc-loading-avatar"><span class="zc-avatar avatar-10"> </span> </div>    
+            <div class="zc-loading-title"> <h1> Zoho People  </h1> </div>    
+            <div class="zc-progress-wrap">
+              <div class="zc-indeter">
+                <div class="zc-indeter-value"> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- SIDEBAR -->
+      <div id="sidebar-scroll" class="sidebar">  
+          <div class="sidebar-wrap">
+          <div class="code-logo" title="Zoho Code">
+            <img src="../images/zoho-code-logo.svg">
+          </div>
+          <ul class="sidebar-nav">
+            <li class="selected">
+              <a href="javascript:void(0)" id="zc-new-project"> 
+                <span class="icon nav-icon"> <svg class="zc-green"> <use xlink:href="#svg-new-icon"> </use> </svg>  </span>
+                New Project 
+              </a>
+            </li>
+            <li>
+              <a id="zc-projects" href="javascript:void(0)"> 
+                <span class="icon nav-icon"> <svg class="zc-yellow"> <use xlink:href="#svg-project-icon"> </use> </svg>  </span>
+                Projects 
+              </a>
+            </li>
+            <li> 
+              <a id="zc-repositories" href="javascript:void(0)">
+                <span class="icon nav-icon"> <svg class="zc-blue"> <use xlink:href="#svg-repositories-icon"> </use> </svg> </span>
+                Zoho Repositories  
+              </a>
+            </li>
+            <li class="zc-nav-title"> ADMINISTRATION  </li>
+            <li> 
+              <a href="javascript:void(0)" id="admin-portal-info">
+                <span class="icon nav-icon">
+                  <svg class="zc-red"> <use xlink:href="#svg-portal-icon"> </use> </svg> 
+                </span>
+                Portal Info 
+              </a>
+  </li>
+            <li> 
+              <a href="javascript:void(0)" id="admin-users">
+                <span class="icon nav-icon"> 
+                  <svg class="zc-violet"> <use xlink:href="#svg-user-icon"> </use> </svg> 
+                </span>
+                Users 
+              </a>
+            </li>
+          </ul> 
+          </div>  
+        </div>
+
+      <!-- ARTICLE -->
+      <div class="article">
+        <div class="zc-topbar"> 
+          <div class="zc-project-title zc-fleft"> </div>
+          <ul class="db-toolbar ide-help zc-fright"> 
+            <li class="ide-menu"> 
+              <button id="code-notification" class="zc-btn icon" title="Notifications">
+                <span class="zc-notifi-count bdr-white">2</span>
+                <i class="icon">  
+                  <svg class="zc-black"> <use xlink:href="#svg-notification-icon"> </use> </svg> 
+                </i> 
+</button>
+</li>
+            <li class="ide-menu"> 
+              <button id="zc-help-btn" data-menu-id="help-menu" data-active-class="active" class="zc-btn icon" title="Help">
+              <i class="icon">  <svg class="zc-black"> <use xlink:href="#svg-help-icon"> </use> </svg> </i> 
+            </button>
+            </li>
+            <li class="zc-accountuser-img">
+              <span id="zc-user-menu" class="ide-user-pic">   <img src="../images/user-img.jpg">   </span>
+</li>
+          </ul>
+        </div>
+        <div class="zc-fixedHeader">
+          <div class="zc-tabWrap">
+            <ul class="nav nav-tabs" id="createproject-tabs">
+              <li class="active"><a data-toggle="tab" href="#sectionA">Develop an Existing Zoho Service</a></li>
+              <li id="zc-create-new-project"><a data-toggle="tab" href="#sectionB">Create New Project</a></li>
+            </ul>
+          </div>
+</div> 
+        <div class="zc-content">
+          <div id="createproject-tab-content" class="tab-content create-project-tab zc-clearfix">
+
+              <div id="sectionA" class="tab-pane  active">
+                <div class="zc-form-wrap zc-tab-animate fade-in">
+
+                  <div class="zc-row zc-fields-title">
+                    <div class="zc-field inline">
+                      <label> Build Details  </label>
+                    </div>
+                  </div>
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Service:  </label>
+                      <select id="zc-required-service" data-placeholder="Choose your service" class="chosen-select-no-single" style="width:310px;" title="Choose your service">          
+                        <optgroup label="Choose your service">
+                        <option value=""></option>
+                        <option value="ONEZOHO">ONEZOHO</option>
+                        <option value="ZOHOPEOPLE_2_0">ZOHOPEOPLE_2_0</option>
+                        <option value="ZOHOCRM">ZOHOCRM</option>
+                        <option value="ZOHOPROJECTS">ZOHOPROJECTS</option>
+                        <option value="SDPLIVE">SDPLIVE</option>
+                        <option value="ZOHOMEETING">ZOHOMEETING</option>
+                        <option value="ZOHOCALENDAR">ZOHOCALENDAR</option>
+                        <option value="ZOHOACCOUNTS">ZOHOACCOUNTS</option>
+                        <option value="WEBMONITOR">WEBMONITOR</option>
+                        <option value="ZOHOCAMPAIGN">ZOHOCAMPAIGN</option>
+                        <option value="ZOHOLITECONTACTS">ZOHOLITECONTACTS</option>
+                        <option value="ZOHOSOCIAL">ZOHOSOCIAL</option>
+                        <option value="ZOHOCHATWMS">ZOHOCHATWMS</option>
+                        <option value="ZOHOPULSE">ZOHOPULSE</option>
+                        </optgroup>
+                      </select>
+                    </div> </div>
+
+                  <div class="zc-row"> <div class="zc-field inline">
+                    <label> Build URL: </label>
+                    <select  id="zc-required-build" data-placeholder="Choose the Build URL to test and run your project" class="chosen-select-no-single" title="Choose the Build URL to test and run your project" style="width:310px;">
+                      <optgroup label="Choose the Build URL to test and run your project">
+                        <option value=""></option>
+                        <option value="http://zoho-build3/products/mycomputer/default/Mar_26_2016/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/default/Mar_26_2016/ZohoMeeting_Client.zip</option>
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_25_2016_1/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_25_2016_1/ZohoMeeting_Client.zip</option>
+
+                        <option value="http://zoho-build3/products/mycomputer/default/Mar_25_2016/ZohoMeeting_Client.zip"> http://zoho-build3/products/mycomputer/default/Mar_25_2016/ZohoMeeting_Client.zip</option>
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016_3/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016_3/ZohoMeeting_Client.zip</option>
+
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016_2/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016_2/ZohoMeeting_Client.zip</option>
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016_1/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016_1/ZohoMeeting_Client.zip</option>
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_24_2016/ZohoMeeting_Client.zip</option>
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_23_2016_6/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_23_2016_6/ZohoMeeting_Client.zip</option>
+
+                        <option value="http://zoho-build3/products/mycomputer/webhost/default/Mar_23_2016_3/ZohoMeeting_Client.zip">http://zoho-build3/products/mycomputer/webhost/default/Mar_23_2016_3/ZohoMeeting_Client.zip</option>
+                      </optgroup>
+                    </select>
+                    </div> </div>
+
+                  <div class="zc-row"> <div class="zc-field inline">
+                    <label> Working Branch: </label>
+                    <select  id="zc-required-branch" data-placeholder="Choose the branch to clone and develop" class="chosen-select-no-single" style="width:310px;" title="Choose the branch to clone and develop">
+                      <optgroup label="Choose the branch to clone and develop">
+                        <option value=""></option>
+                        <option value="ZOHOCRM_CHANDRU_BRANCH">ZOHOCRM_CHANDRU_BRANCH</option>
+                        <option value="ZOHOCRM_CUSTOM_BUTTON_BRANCH">ZOHOCRM_CUSTOM_BUTTON_BRANCH</option>
+                        <option value="ZOHOCRM_CUSTOM_BUTTON_BRANCH_REVIEWED">ZOHOCRM_CUSTOM_BUTTON_BRANCH_REVIEWED</option>
+                        <option value="ZOHOCRM_INVOICEBOOK_INTEGRATION_BRANCH">ZOHOCRM_INVOICEBOOK_INTEGRATION_BRANCH</option>
+                        <option value="ZOHOCRM_NEW_SOCIAL_BRANCH">ZOHOCRM_NEW_SOCIAL_BRANCH</option>
+                        <option value="ZOHOCRM_REVIEWED">ZOHOCRM_REVIEWED</option>
+                        <option value="ZOHOCRM_USER_BALARAMAND_BRANCH"> ZOHOCRM_USER_BALARAMAND_BRANCH</option>
+                        <option value="ZOHOCRM_USER_BALARAMAND_BRANCH_REVIEWED">ZOHOCRM_USER_BALARAMAND_BRANCH_REVIEWED</option>
+                        <option value="ZOHOCRM_USER_JAYANTHI_BRANCH">ZOHOCRM_USER_JAYANTHI_BRANCH</option>
+                        <option value="ZOHOCRM_USER_PRATHEESH_BRANCH">ZOHOCRM_USER_PRATHEESH_BRANCH</option>
+                        <option value="ZOHOCRM_VIJAYAKRISHNA_BRANCH">ZOHOCRM_VIJAYAKRISHNA_BRANCH</option>
+                        <option value="ZOHOCRM_USER_YUVARAJN_BRANCH">ZOHOCRM_USER_YUVARAJN_BRANCH</option>
+                        <option value="ZOHOCRM_PLATFORM_PLUGIN_BRANCH">ZOHOCRM_PLATFORM_PLUGIN_BRANCH</option>
+                        <option value="ZOHOCRM_INVOICEBOOK_INTEGRATION_BRANCH_REVIEWED">ZOHOCRM_INVOICEBOOK_INTEGRATION_BRANCH_REVIEWED</option>
+                        <option value="ZOHOCRM_DASHBOARD_BRANCH">ZOHOCRM_DASHBOARD_BRANCH</option>
+                      </optgroup>
+                    </select>
+                    </div> </div>
+
+                  <div class="zc-row rep-cred"> <div class="zc-field inline">
+                    <label> Repository Credentials: </label>
+                    <input id="rep-username" type="text" placeholder="User Name" class="zc-input no-margin"> 
+                    <input id="rep-password" type="password" placeholder="Password" class="zc-input"> 
+                    </div>
+                    <div id="zc-error-msg" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint zc-error-msg">You entered an incorrect user name or password.</label>
+                    </div>     
+
+                  </div>
+
+                  <div id="project-config-title"class="zc-row zc-fields-title zc-project-config">
+                    <div class="zc-field inline">
+                      <label>Project Configuration <span id="zc-pconfig-help" class="zc-projectconfig-help icon-18">
+                        <svg class="zc-blue"> <use  xlink:href="#svg-help-icon"> </use> </svg>
+                        </span></label>
+                    </div>
+                    <div class="zc-alert zc-info-msg"> 
+                      <p class="zc-title"> Server running ports: </p>
+                      <p> <span>HTTP:</span> 8080  </p>
+                      <p> <span>HTTPS:</span> 8443 </p>
+                    </div>
+                  </div>
+
+                  <div id="schema" class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Schema Name: </label>
+                      <input id="zc-schema-name" type="text" placeholder="" class="zc-input">     
+                    </div>
+                    <div id="zc-schema-required" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint">Enter schema name.</label>
+                    </div>   
+                    <div class="zc-field inline zc-hint-wrap">
+                      <label class="zc-hint">Enter a Schema Name for your project to create the tables defined in your data dictionary file.</label></div>   
+
+                  </div>  
+
+                  <div id="service-name" class="zc-row" > 
+                    <div class="zc-field inline">
+                      <label> IAM Server: </label>
+                      <input id="zc-service-name" type="text" placeholder="" class="zc-input">      
+                    </div>
+                    <div id="zc-servicename-required" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint">Enter IAM server </label>
+                    </div>   
+
+                    <div class="zc-field inline zc-hint-wrap">
+                      <label class="zc-hint">Enter the URL of the IAM Server that this project refers.</label></div>   
+                  </div> 
+
+                  <div id="service-url" class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> IAM Service Name: </label>
+                      <input id="zc-service-url" type="text" placeholder="" class="zc-input">     
+                    </div>
+                    <div id="zc-serviceurl-required" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint">Enter IAM service name.</label>
+                    </div>  
+                    <div class="zc-field inline zc-hint-wrap">
+                      <label class="zc-hint">Enter the IAM Service Name you’ve registered in the above entered IAM Server.</label></div>   
+                  </div>  
+
+                  <div  class="zc-row zc-fields-title">
+                    <div class="zc-field inline">
+                      <label>Project Details </label>
+                    </div>
+
+                  </div>
+
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Project Name: </label>
+                      <input id="zc-project-name" type="text" placeholder="" class="zc-input">     
+                    </div>
+                    <div id="zc-project-error" class="zc-field inline zc-hint-wrap">
+                      <label class="zc-hint">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+                    </div>   
+                  </div>
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline valign-top">
+                      <label> Description <span class="zc-hint">(optional)</span>:</label>
+                      <textarea id="ezs-description" placeholder=""></textarea>    
+                    </div> 
+                  </div>
+
+                  <div class="zc-row no-margin"> 
+                    <div class="zc-field inline">
+                      <label> Project Avatar: </label>
+                      <span id="zc-change-avatar" class="zc-project-avatar" tabindex="0">
+                        <span class="zc-avatar avatar-1">
+                         <svg> <use xlink:href="#svg-avatar-box"> </use> </svg>
+                        </span>
+                        <span id="zc-change-avatar" class="zc-avatar-change">Change...</span> 
+                      </span> 
+
+                    </div> 
+                  </div>
+
+
+                  <div class="zc-row">
+                    <div class="zc-btn-wrap">
+                      <button id="create-project-btn" class="zc-btn zc-gradient">Create </button>
+                      <button id="cancel-ezs-project-btn" class="zc-btn  zc-secondary">  Cancel  </button>
+                    </div>  
+                  </div>
+
+
+                </div>
+              </div>
+              <div id="sectionB" class="tab-pane">
+                <div class="zc-form-wrap zc-tab-animate">
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Project Name: </label>
+                      <input id="zc-create-project-name" type="text" placeholder="" class="zc-input" >     
+                    </div>
+                    <div id="zc-create-project-error" class="zc-field inline  zc-hint-wrap">
+                      <label class="zc-hint">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+                    </div>   
+                  </div>
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline valign-top">
+                      <label> Description <span class="zc-hint">(optional)</span>: </label>
+                      <textarea id="cnp-description" placeholder=""></textarea>     
+                    </div> 
+                  </div>
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Project Avatar: </label>
+                      <span id="zc-new-change-avatar" class="zc-project-avatar" tabindex="0">
+                        <span class="zc-avatar avatar-1">
+                          <svg> <use xlink:href="#svg-avatar-box"> </use> </svg>
+                        </span>
+                        <span class="zc-avatar-change">Change...</span> 
+                      </span> 
+
+                    </div> 
+                  </div>
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Development Environment:     </label>
+                      <button id='create-new-environment' class='zc-btn zc-btn-small zc-grey'>Choose... </button> 
+                      <div id="zc-newenviro-error-msg" class="zc-field inline zc-hint-wrap" style="display: none;">
+                        <label class="zc-hint zc-error-msg">Choose environment.</label>
+                      </div>
+                      <div id="zc-selected-enviro" class="zc-selected-envir"> 
+                        <div class="zc-enviro-wrap">
+                          <div class="zc-envir-logo-wrap">
+                            <span class="zc-enviro-logo"> 
+                              <span class="enviro-logo django-logo"> </span>
+                            </span>
+                          </div>   
+                          <div class="zc-envir-desc"> 
+
+                            <button id="zc-change-enviro" class="zc-btn icon zc-change-url" title="Change..."><i class="icon"> <svg class="zc-black"> <use  xlink:href="#svg-edit-icon"> </use> </svg> </i>  </button>
+
+                            <p> <span class="zc-title">Name: </span> <span id="zc-enviro-name">  Django</span></p>
+                            <p class="zc-package-desc"> <span class="zc-title">Packages:</span> <span id="zc-enviro-desc"> Python 3, Postgres, django CMS, 
+                              Open edX, Pinax, Pip and Virtualenv 15.0.0. </span></p>
+                          </div>
+                        </div>
+
+                      </div> 
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+
+                  <div class="zc-row zc-repository-url">
+                    <div class="zc-field inline valign-top">
+                      <label>Source Code: </label>
+                      <div class="zc-radio-wrap">
+
+
+
+                        <div class="zc-radio-field">  
+                          <input id="develop-from-scrach" type="radio" name="rep"  class="zc-radio" checked="">
+                          <label for="develop-from-scrach" class="zc-radio-clone"> Develop from Scratch  </label>
+                        </div>
+                        <div class="zc-radio-field zc-use-cloud">  
+                          <input id="cloud-repository" type="radio" name="rep" class="zc-radio">
+                          <label for="cloud-repository" class="zc-radio-clone"> Use a Cloud Repository </label>
+                        </div>
+                        <span id="zc-cloud-rep-info" class="zc-cloud-info icon-18">
+
+                          <svg class="zc-blue"> <use xlink:href="#svg-info-icon"> </use> </svg>
+                        </span>
+
+
+                        <button id="choose-repository" class="zc-btn zc-btn-small zc-grey" style="display:none">Choose... </button>   
+                      </div>
+
+                      <div id="zc-repository-url" style="display:none">
+
+                        <div class="zc-selected-repos">
+                          <span class="zc-repos-logo"> 
+                            <span class="icon">   <svg class="zc-white"> <use xlink:href="#svg-github-icon"> </use> </svg></span>
+
+                          </span>
+                          <span class="zc-repos-url">
+
+                            <button id="zc-change-url" class="zc-btn icon zc-change-url" title="Change..."><i class="icon"> <svg class="zc-black"> <use xlink:href="#svg-edit-icon"> </use> </svg> </i>  </button>
+                            <p>
+                              <span class="zc-title">Name: </span>
+                              <span id="zc-clone-name">Ruby</span>
+
+                            </p>
+                            <p class="zc-selected-url"> <span class="zc-title">URL:</span>
+                              <span class="zc-rep-url">
+                                <a href="#">  https://github.com/ayyasami/c-projects.git</a>
+                              </span>
+                            </p>
+
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  </div>    
+
+
+
+                  <div class="zc-row">
+                    <div class="zc-btn-wrap">
+                      <button id="create-new-project-btn" class="zc-btn zc-gradient"> Create </button>
+                      <button id="cancel-new-project-btn" class="zc-btn zc-secondary"> Cancel </button>
+                    </div>
+                  </div>    
+
+
+                </div>
+              </div>
+
+            </div>
+</div>
+       </div>
+      
+      <!-- OVERLAYS -->    
+      <div id="zc-overlay-white" class="zc-overlay zc-overlayWhite">  
+        <button class="zc-btn zc-dialog-close icon zc-delete-close" title="Close">
+          <i class="icon">
+            <svg class="zc-black"> <use  xlink:href="#svg-close-icon"> </use> </svg>
+          </i>
+        </button>
+          <!-- CHOOSE ENVIRONMENT-->
+          <div id="choose-environment-popup" class="zc-dialog zc-choose-environment">
+        <div class="zc-form-wrap">
+          <div class="zc-enviro-title">
+            <h1>Development Environment </h1>
+            <p> Choose a web application framework or language below as your development environment. The frameworks have the related tools and libraries pre-installed. Also, the settings to run your project remotely are pre-configured. <a href="#" tabindex="-1"> Learn more</a></p>
+          </div>
+
+          <h3> Web Application Framework: </h3>
+
+
+          <div class="zc-environment-list"> 
+            <div id="zc-rails" class="zc-environment">
+              <span class="zc-enviro-logo"> <span class="enviro-logo rails-logo"> </span> </span>
+              <span class="zc-enviro-name">  Rails </span>  
+
+            </div>
+            <div id="zc-django" class="zc-environment selected">
+              <span class="zc-enviro-logo"> <span class="enviro-logo django-logo"> </span> </span>
+              <span class="zc-enviro-name">  Django </span>  
+
+            </div>
+            <div id="zc-tomcat" class="zc-environment">
+              <span class="zc-enviro-logo"> <span class="enviro-logo tomcat-logo"> </span> </span>
+              <span class="zc-enviro-name">  Tomcat </span>    
+
+            </div>
+
+
+            <h3 class="zc-enviro-lang"> Language: </h3>
+
+
+            <div id="zc-java" class="zc-environment">
+              <span class="zc-enviro-logo"> <span class="enviro-logo java-logo"> </span> </span>
+              <span class="zc-enviro-name">  Java </span>  
+
+            </div>
+            <div id="zc-ruby" class="zc-environment">
+              <span class="zc-enviro-logo"> <span class="enviro-logo ruby-logo"> </span> </span>
+              <span class="zc-enviro-name">  Ruby </span>
+
+            </div>
+            <div id="zc-go"class="zc-environment">
+              <span class="zc-enviro-logo"> <span class="enviro-logo go-logo"> </span> </span>
+              <span class="zc-enviro-name">  Go </span>    
+
+            </div>
+            <div id="zc-python" class="zc-environment">
+              <span class="zc-enviro-logo"> <span class="enviro-logo python-logo"> </span> </span>
+              <span class="zc-enviro-name">  Python </span>     
+
+            </div>
+          </div>
+
+
+          <div class="zc-row zc-btn-wrap">
+            <button id="create-environment" class="zc-btn zc-gradient">  OK  </button>
+            <button id="cancel-environement" class="zc-btn zc-secondary"> Cancel </button>
+          </div>    
+
+
+        </div>  
+      </div>
+          <div id="choose-repository-popup" class="zc-dialog zc-choose-repository"> 
+        <div class="zc-tab-wrap zc-cloud-tabs">
+          <ul class="nav nav-tabs" id="chooseCloud">
+            <li><a data-toggle="tab" href="#github"> <span class="icon"><svg> <use xlink:href="#svg-github-icon"> </use> </svg> </span>GitHub</a></li>
+            <li><a data-toggle="tab" href="#bitbucket"> <span class="icon"><svg> <use xlink:href="#svg-bitbucket-icon"> </use> </svg> </span>Bitbucket</a></li>
+            <li><a data-toggle="tab" href="#zohorepository"><span class="icon"><svg> <use xlink:href="#svg-rep-icon"> </use> </svg> </span>Other Repository</a></li>
+
+          </ul>
+          <div id="choose-cloud-content" class="tab-content">
+            <div id="github" class= "tab-pane fade in active">
+              <div class="zc-tab-animate fade-in">
+                <div id="github-authenticate" style="display:none" >
+                  <div class="zc-github-logo"> 
+                    <svg> <use xlink:href="#svg-github-icon"> </use> </svg>
+                  </div>
+                  <div class="zc-github-content">
+                    <p>
+                      Authenticate yourself with your GitHub account. After the authentication, your repositories will appear below from which you can select one.
+                    </p>
+
+                  </div>
+                  <div class="zc-row zc-authenticate">
+                    <button id="github-authenticate-btn" class="zc-btn zc-gradient zc-btn-small"> Authenticate... </button>
+                  </div>
+
+
+
+
+                </div> 
+                <div id="github-project-list">
+                  <div class="zc-project-search"> 
+                    <input class="zc-input" type="text" value="" placeholder="Search Repository"/>
+                  </div>    
+                  <div class="zc-project-list">
+                    <div class="zc-row">
+                      <span class="icon"><svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-1" class="zc-project-name"> GPS-soln</span>
+                        <span id="zc-clone-url-1" class="zc-project-url"> https://github.com/ayyasami/GPS-soln.git</span>
+                      </span>
+                      <button id="zc-clone-btn-1"class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div>    
+                    <div class="zc-row">
+                      <span class="icon"> <svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-2" class="zc-project-name"> c-projects</span>
+                        <span id="zc-clone-url-2" class="zc-project-url"> https://github.com/ayyasami/c-projects/webserver/apache/webapps/bin/office/docs/cprojects.git</span>
+                      </span>
+                      <button id="zc-clone-btn-2" class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div>    
+                    <div class="zc-row">
+                      <span class="icon"> <svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-3" class="zc-project-name"> Docs</span>
+                        <span id="zc-clone-url-3" class="zc-project-url"> https://github.com/ayyasami/Docs.git</span>
+                      </span>
+                      <button id="zc-clone-btn-3" class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div> 
+                    <div class="zc-row">
+                      <span class="icon"> <svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-3" class="zc-project-name"> Docs</span>
+                        <span id="zc-clone-url-3" class="zc-project-url"> https://github.com/ayyasami/Docs.git</span>
+                      </span>
+                      <button id="zc-clone-btn-3" class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div> 
+                    <div class="zc-row">
+                      <span class="icon"> <svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-3" class="zc-project-name"> Docs</span>
+                        <span id="zc-clone-url-3" class="zc-project-url"> https://github.com/ayyasami/Docs.git</span>
+                      </span>
+                      <button id="zc-clone-btn-3" class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div>    
+                    <div class="zc-row">
+                      <span class="icon"> <svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-3" class="zc-project-name"> Docs</span>
+                        <span id="zc-clone-url-3" class="zc-project-url"> https://github.com/ayyasami/Docs.git</span>
+                      </span>
+                      <button id="zc-clone-btn-3" class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div>
+                    <div class="zc-row">
+                      <span class="icon"> <svg> <use xlink:href="#svg-gitrepositories-icon"> </use> </svg> </span>
+                      <span class="zc-project">
+                        <span id="zc-project-name-3" class="zc-project-name"> Docs</span>
+                        <span id="zc-clone-url-3" class="zc-project-url"> https://github.com/ayyasami/Docs.git</span>
+                      </span>
+                      <button id="zc-clone-btn-3" class="zc-btn zc-btn-small zc-grey"> Select </button>
+                    </div>    
+
+                  </div>  
+                </div>
+                <div class="zc-seperator"> <span> or </span></div>
+                <div class="zc-public-url zc-form-wrap">
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <input id="github-public" type="text" placeholder="Copy-paste a public GitHub URL" class="zc-input"> 
+                      <button id="zc-github-clone-btn" class="zc-btn zc-gradient zc-btn-small"> Done </button>
+                    </div>
+                    <div id="zc-github-clone-error" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint">Enter public URL.</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="bitbucket" class="tab-pane fade">
+              <div class="zc-tab-animate">
+                <div id="bitbucket-authenticate">
+                  <div class="zc-github-logo"> 
+                    <svg> <use xlink:href="#svg-bitbucket-icon"> </use> </svg>
+                  </div>
+                  <div class="zc-github-content">
+                    <p>
+                      Authenticate yourself with your Bitbucket account. After the authentication, your repositories will appear below from which you can select one.
+
+                  </div>
+                  <div class="zc-row zc-authenticate">
+                    <button class="zc-btn zc-gradient zc-btn-small"> Authenticate... </button>
+                  </div>
+
+
+                </div> 
+                <div class="zc-seperator"> <span> or</span> </div>
+                <div class="zc-form-wrap zc-public-url">
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <input type="text" placeholder="Copy-paste a public Bitbucket URL" class="zc-input"> 
+                      <button class="zc-btn zc-gradient zc-btn-small"> Done </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="zohorepository" class="tab-pane fade">
+              <div class="zc-tab-animate">                      
+                <div class="zc-form-wrap">
+
+                  <div class="zc-row"> 
+                    <div class="zc-field inline">
+                      <label> Repository URL:</label>
+                      <input id="zr-clone-url" type="text" placeholder="Enter the URL of any Git or Hg repository
+                                                                        " class="zc-input">     
+                    </div>
+                    <div id="zr-cloneurl-error" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint">Enter public URL.</label>
+                    </div>
+                  </div>
+
+                  <div class="zc-row zc-use-authori">
+                    <div class="zc-field inline">
+                      <div class="check-wrap">
+                        <input id="zc-zoho-use-author" type="checkbox" value=" " class="zc-checkbox" tabindex="0"/>  
+                        <label for="zc-zoho-use-author" class="zc-checkbox-clone">  Requires Authentication  </label>  
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="zc-rep-cred" class="zc-row rep-cred" style="display:none">
+                    <div class="zc-field inline">
+                      <label> </label>
+                      <input id="zr-credentials-username" type="text" placeholder="User Name" class="zc-input no-margin"> 
+                      <input id="zr-credentials-password" type="password" placeholder="Password" class="zc-input"> 
+                    </div> 
+                    <div id="zr-credentials-error-msg" class="zc-field inline zc-hint-wrap" style="display:none">
+                      <label class="zc-hint zc-error-msg">You entered an incorrect user name or password.</label>
+                    </div>
+                  </div>
+
+                  <div class="zc-row">
+                    <div class="zc-row zc-btn-wrap">
+                      <button id="clone-zoho-repository" class="zc-btn zc-gradient"> Done </button>
+                      <button  id="cancel-zoho-repository" class="zc-btn zc-secondary"> Cancel </button>
+                    </div>    
+                  </div>    
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>   
+      </div>
+     
+      <!-- PROJECT AVATAR LIST -->
+      <div id="zc-avatar-list" class="zc-avatar-list" tabindex="1">
+        <ul>
+          <li class="selected" title="avatar"> 
+            <span class="zc-avatar avatar-1">
+            <svg> <use xlink:href="#svg-avatar-box"> </use> </svg> 
+            </span>
+          </li>
+          <li title="Sales"> 
+            <span class="zc-avatar avatar-2">
+             <svg> <use xlink:href="#svg-sales-avatar"> </use> </svg> 
+            </span>
+          </li>
+          <li title="eCommerce"> 
+            <span class="zc-avatar avatar-3"> 
+            <svg> <use xlink:href="#svg-ecommerce2-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Music"> 
+            <span class="zc-avatar avatar-4"> 
+              <svg> <use xlink:href="#svg-music1-avatar"> </use> </svg>
+            </span>
+          </li>
+          <li title="Help Desk, Support"> 
+            <span class="zc-avatar avatar-5"> 
+             <svg> <use xlink:href="#svg-support-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Document Management">  
+            <span class="zc-avatar avatar-6"> 
+              <svg> <use xlink:href="#svg-docs-avatar"> </use> </svg>
+            </span>
+          </li>
+          <li title="Security">  
+            <span class="zc-avatar avatar-7">
+              <svg> <use xlink:href="#svg-security-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Customer Relationship Management"> 
+            <span class="zc-avatar avatar-8">
+              <svg> <use xlink:href="#svg-crm-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Mobile">
+            <span class="zc-avatar avatar-9">
+              <svg> <use xlink:href="#svg-mobile-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Cloud">  
+            <span class="zc-avatar avatar-10"> 
+              <svg> <use xlink:href="#svg-cloud-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Sales">  
+            <span class="zc-avatar avatar-11">
+              <svg> <use xlink:href="#svg-sales2-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Server">  
+            <span class="zc-avatar avatar-12"> 
+              <svg> <use xlink:href="#svg-server-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Insurance"> 
+            <span class="zc-avatar avatar-13"> 
+              <svg> <use xlink:href="#svg-insurance-avatar"> </use> </svg>
+            </span> 
+          </li>   
+          <li title="E-commerce"> 
+            <span class="zc-avatar avatar-14"> 
+              <svg> <use xlink:href="#svg-ecommerce3-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Human Resource"> 
+            <span class="zc-avatar avatar-15">
+              <svg> <use xlink:href="#svg-hr-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Bug Tracker"> 
+            <span class="zc-avatar avatar-16"> 
+              <svg> <use xlink:href="#svg-bug-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Security">
+            <span class="zc-avatar avatar-17">
+              <svg> <use xlink:href="#svg-security2-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="E-commerce">  
+            <span class="zc-avatar avatar-18">
+              <svg> <use xlink:href="#svg-desktop-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Desktop"> 
+            <span class="zc-avatar avatar-19">
+              <svg> <use xlink:href="#svg-ecommerce-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Campaign">  
+            <span class="zc-avatar avatar-20"> 
+              <svg> <use xlink:href="#svg-campaign-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Law">  
+            <span class="zc-avatar avatar-21">
+              <svg> <use xlink:href="#svg-law-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Travel, Transport"> 
+            <span class="zc-avatar avatar-22">
+              <svg> <use xlink:href="#svg-travel-avatar"> </use>
+            </span>
+          </li>
+          <li title="Social, Chat">  
+            <span class="zc-avatar avatar-23">
+               <svg> <use xlink:href="#svg-social-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Banking"> 
+            <span class="zc-avatar avatar-24"> 
+              <svg> <use xlink:href="#svg-banking-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Application">  
+            <span class="zc-avatar avatar-25"> 
+              <svg> <use xlink:href="#svg-application-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Health Care"> 
+            <span class="zc-avatar avatar-26"> 
+              <svg> <use xlink:href="#svg-health-avatar"> </use> </svg> 
+            </span> 
+          </li>  
+          <li title="Music">  
+            <span class="zc-avatar avatar-27">
+              <svg> <use xlink:href="#svg-music-avatar"> </use> </svg> 
+            </span>
+          </li>  
+          <li title="Sports">  
+            <span class="zc-avatar avatar-28"> 
+              <svg> <use xlink:href="#svg-sports-avatar"> </use> </svg>
+            </span> 
+          </li>  
+          <li title="Puzzles"> 
+            <span class="zc-avatar avatar-29">
+              <svg> <use xlink:href="#svg-puzzles-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Invoice">  
+            <span class="zc-avatar avatar-30"> 
+              <svg> <use xlink:href="#svg-invoice-avatar"> </use> </svg>
+            </span>  
+          </li>
+        </ul>   
+        <div class="zc-file-upload">
+          <input type="file" id="zc-choose-avatar" class="zc-inputfile">
+          <label class="zc-btn zc-secondary" for="zc-choose-avatar"> Choose from Computer</label>
+        </div>
+    </div>  
+
+      <!-- PROJECT AVATAR LIST -->
+      <div id="zc-new-avatar-list" class="zc-avatar-list"  tabindex="2">
+       <ul>
+          <li class="selected" title="avatar"> 
+            <span class="zc-avatar avatar-1">
+            <svg> <use xlink:href="#svg-avatar-box"> </use> </svg> 
+            </span>
+          </li>
+          <li title="Sales"> 
+            <span class="zc-avatar avatar-2">
+             <svg> <use xlink:href="#svg-sales-avatar"> </use> </svg> 
+            </span>
+          </li>
+          <li title="eCommerce"> 
+            <span class="zc-avatar avatar-3"> 
+            <svg> <use xlink:href="#svg-ecommerce2-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Music"> 
+            <span class="zc-avatar avatar-4"> 
+              <svg> <use xlink:href="#svg-music1-avatar"> </use> </svg>
+            </span>
+          </li>
+          <li title="Help Desk, Support"> 
+            <span class="zc-avatar avatar-5"> 
+             <svg> <use xlink:href="#svg-support-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Document Management">  
+            <span class="zc-avatar avatar-6"> 
+              <svg> <use xlink:href="#svg-docs-avatar"> </use> </svg>
+            </span>
+          </li>
+          <li title="Security">  
+            <span class="zc-avatar avatar-7">
+              <svg> <use xlink:href="#svg-security-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Customer Relationship Management"> 
+            <span class="zc-avatar avatar-8">
+              <svg> <use xlink:href="#svg-crm-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Mobile">
+            <span class="zc-avatar avatar-9">
+              <svg> <use xlink:href="#svg-mobile-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Cloud">  
+            <span class="zc-avatar avatar-10"> 
+              <svg> <use xlink:href="#svg-cloud-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Sales">  
+            <span class="zc-avatar avatar-11">
+              <svg> <use xlink:href="#svg-sales2-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Server">  
+            <span class="zc-avatar avatar-12"> 
+              <svg> <use xlink:href="#svg-server-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Insurance"> 
+            <span class="zc-avatar avatar-13"> 
+              <svg> <use xlink:href="#svg-insurance-avatar"> </use> </svg>
+            </span> 
+          </li>   
+          <li title="E-commerce"> 
+            <span class="zc-avatar avatar-14"> 
+              <svg> <use xlink:href="#svg-ecommerce3-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Human Resource"> 
+            <span class="zc-avatar avatar-15">
+              <svg> <use xlink:href="#svg-hr-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Bug Tracker"> 
+            <span class="zc-avatar avatar-16"> 
+              <svg> <use xlink:href="#svg-bug-avatar"> </use> </svg>
+            </span>  
+          </li>
+          <li title="Security">
+            <span class="zc-avatar avatar-17">
+              <svg> <use xlink:href="#svg-security2-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="E-commerce">  
+            <span class="zc-avatar avatar-18">
+              <svg> <use xlink:href="#svg-desktop-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Desktop"> 
+            <span class="zc-avatar avatar-19">
+              <svg> <use xlink:href="#svg-ecommerce-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Campaign">  
+            <span class="zc-avatar avatar-20"> 
+              <svg> <use xlink:href="#svg-campaign-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Law">  
+            <span class="zc-avatar avatar-21">
+              <svg> <use xlink:href="#svg-law-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Travel, Transport"> 
+            <span class="zc-avatar avatar-22">
+              <svg> <use xlink:href="#svg-travel-avatar"> </use>
+            </span>
+          </li>
+          <li title="Social, Chat">  
+            <span class="zc-avatar avatar-23">
+               <svg> <use xlink:href="#svg-social-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Banking"> 
+            <span class="zc-avatar avatar-24"> 
+              <svg> <use xlink:href="#svg-banking-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Application">  
+            <span class="zc-avatar avatar-25"> 
+              <svg> <use xlink:href="#svg-application-avatar"> </use> </svg> 
+            </span>  
+          </li>
+          <li title="Health Care"> 
+            <span class="zc-avatar avatar-26"> 
+              <svg> <use xlink:href="#svg-health-avatar"> </use> </svg> 
+            </span> 
+          </li>  
+          <li title="Music">  
+            <span class="zc-avatar avatar-27">
+              <svg> <use xlink:href="#svg-music-avatar"> </use> </svg> 
+            </span>
+          </li>  
+          <li title="Sports">  
+            <span class="zc-avatar avatar-28"> 
+              <svg> <use xlink:href="#svg-sports-avatar"> </use> </svg>
+            </span> 
+          </li>  
+          <li title="Puzzles"> 
+            <span class="zc-avatar avatar-29">
+              <svg> <use xlink:href="#svg-puzzles-avatar"> </use> </svg> 
+            </span> 
+          </li>
+          <li title="Invoice">  
+            <span class="zc-avatar avatar-30"> 
+              <svg> <use xlink:href="#svg-invoice-avatar"> </use> </svg>
+            </span>  
+          </li>
+        </ul> 
+
+        <div class="zc-file-upload">
+          <input type="file" id="zc-choose-avatar-1" class="zc-inputfile">
+          <label class="zc-btn zc-secondary" for="zc-choose-avatar-1"> Choose from Computer</label>
+        </div>
+
+      </div>  
+      
+      <!-- POPOVERS -->
+      <div id="zc-project-config-help" style="display:none"> 
+        <p>Project Configuration captures database schema name (so as to create tables defined in your data dictionary file), details of dependent services (e.g., IAM), and any other such mandatory info.  </p>   
+      </div>
+
+      <div id="zc-useraccount-help" style="display: none;"> 
+        <p> This is your unique identification number in Zoho.  </p> 
+        <p> It will be handy for you to identify yourself to our customer support executive, say when you seek our assistance through our Toll Free number. </p>
+      </div>
+      
+      <div id="zc-rep-info" class="zc-cloudRep-info" style="display: none;"> 
+        <p>You can clone path from your Cloud Repository such as GitHub, BitBucket, etc., and access the files within Zoho Code’s IDE. </p> <p> Also, you can perform normal repository operations such as Push, Pull, Branch, etc.  </p>   
+      </div>  
+
+      <div id="zc-popover-tomcat" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Java </p> 
+        <p class="zc-enviro-info"> <span>Server:</span> Tomcat</p> 
+        <p class="zc-enviro-info"> <span>Database:</span> Postgress</p>
+      </div> 
+
+      <div id="zc-popover-rails" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Ruby </p> 
+        <p class="zc-enviro-info"> <span>Server:</span> Rails</p> 
+        <p class="zc-enviro-info"> <span>Database:</span> SQLite</p>
+      </div>
+
+      <div id="zc-popover-django" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Python </p> 
+        <p class="zc-enviro-info"> <span>Server:</span> Django</p> 
+        <p class="zc-enviro-info"> <span>Database:</span> Postgres </p>
+      </div>
+
+      <div id="zc-popover-go" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Go </p> 
+        <p class="zc-enviro-info"> <span>Library:</span> Ant 1.8.1</p> 
+      </div> 
+
+      <div id="zc-popover-java" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Java </p> 
+        <p class="zc-enviro-info"> <span>Library:</span> Ant 1.8.1</p> 
+      </div> 
+
+      <div id="zc-popover-ruby" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Ruby </p> 
+        <p class="zc-enviro-info"> <span>Library:</span> Ant 1.8.1</p> 
+      </div>
+
+      <div id="zc-popover-python" style="display:none"> 
+        <p class="zc-enviro-info"> <span>Language: </span> Python </p> 
+        <p class="zc-enviro-info"> <span>Library:</span> Ant 1.8.1</p> 
+      </div> 
+      
+      <div id="zc-notification-popover" class="zc-notifi" style="display: none;">
+        <div class="zc-notifi-pane">
+        <ul>
+          <li> 
+            <a class="notify-unread">
+              <span class="zc-user-pic"> <img src="../images/user-5.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name"> Bruce Armstrong </span>shared GPS_Technology project with you.</span> 
+                <span class="notifi-time">Few seconds ago</span>
+              </span>
+
+            </a>
+          </li>
+          <li> 
+            <a class="notify-unread">
+              <span class="zc-user-pic"> <img src="../images/user-1.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name">Johnny Walker  </span>has mentioned you in a 
+                  comment in config.js. </span> 
+                <span class="notifi-time"><span class="project-name">Zoho_Docs</span>  4 minutes ago</span>
+              </span>
+
+            </a>
+          </li>
+          <li> 
+            <a>
+              <span class="zc-user-pic"> <img src="../images/user-5.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name"> Bruce Armstrong </span>replied to your comment in 
+                  application.js.</span> 
+                <span class="notifi-time"><span class="project-name">Document_Management</span> 15 minutes ago</span>
+              </span>
+
+            </a>
+          </li>
+          <li> 
+            <a>
+              <span class="zc-user-pic"> <img src="../images/user-8.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name"> Madison </span>commented in config_build_doc.html.</span> 
+                <span class="notifi-time"><span class="project-name">SDP_Live</span>  2 hours ago</span>
+              </span>
+
+            </a>
+          </li>
+          <li> 
+            <a class="notify-unread">
+              <span class="zc-user-pic"> <img src="../images/user-5.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name"> Bruce Armstrong </span>requests for write permission in Document_Management.</span> 
+                <span class="notifi-time">Oct 24, 5:21 PM</span>
+              </span>
+
+            </a>
+          </li>
+          <li> 
+            <a>
+              <span class="zc-user-pic"> <img src="../images/user-2.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name"> Ann Tran </span>reopened a comment in application.js.</span> 
+                <span class="notifi-time"><span class="project-name">GPS_Solution</span>  Oct 23, 5:21 PM</span>
+              </span>
+
+            </a>
+          </li>
+          <li> 
+            <a>
+              <span class="zc-user-pic"> <img src="../images/user-9.png"></span>
+              <span class="notifi-cont"> 
+                <span class="notifi-msg"> <span class="user-name"> Jackson </span>resolved a comment in application.js.</span> 
+                <span class="notifi-time"><span class="project-name">GPS_Solution</span>  Oct 21, 3:11 AM</span>
+              </span>
+
+            </a>
+          </li>
+        </ul>
+        <div class="zc-empty-state zc-hide">
+          <div class="zc-empty-image empty-notification">
+          </div>
+          <h2>You don’t have any notification yet. </h2>
+          <p>When you are mentioned in a comment, invited to collaborate, added new comment or reply your comment, you will see it here. </p>
+        </div>
+      </div>
+      </div>
+      
+      <!-- HELP MENU -->
+      <div id="help-menu" style="display:none;"data-ctype="zmenu" data-content-type="text" data-pointer=true class="animate-fadedown">
+        <ul>
+        <li> Help</li>
+        <li> FAQs</li>
+        <li> What's New</li>
+        <li> Take a Tour</li>
+        <li data-item-type="separator"></li>
+        <li> Keyboard Shortcuts</li>
+        <li data-item-type="separator"></li>
+        <li> About Zoho Code </li>
+        <li> Blogs </li>
+        <li data-item-type="separator"></li>
+        <li> Forums </li>
+        <li> Support </li>
+      </ul>
+      </div>
+      
+      <!-- USER ACCOUNT MENU -->
+      <div class="zc-user-account"> 
+          <div class="zc-account-header"> 
+            <span class="zc-user-pic">   <img src="../images/user-img.jpg">   </span> </div>			
+          <div class="zc-user-info">
+            <span class="ide-user-name"> James Anderson </span>
+            <span class="ide-user-mail"> Jamesanderson@zohocorp.com </span>
+            <span class="ide-user-mail">User ID: 987635421 
+              <span id="useraccount-help-icon" class="icon-12">
+                <svg class="zc-grey"> <use xlink:href="#svg-help-icon"> </use> </svg>
+              </span>
+            </span>
+            <button id="signout-btn" class="zc-btn zc-secondary zc-btn-small"> Sign Out </button>
+          </div>
+          <div class="zc-user-menu">
+            <ul class="zc-setting-info">
+              <li> <span class="zc-list-text">My Account </span>  </li>
+              <li id="my-portals"> <span class="zc-list-text">My Portals </span>  <span class="zc-sublist-arrow">
+                <i class="icon-9 icon-secondary"><svg class="zc-dark"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrowRight-icon"> </use> </svg> </i>
+                </span> </li>
+              <!--<li>  <a href="#"> My Projects </a> </li>-->
+            </ul>
+            <div class="zc-user-subnav"> 
+              <ul>
+                <li class="menu-header" id="back-to-info"> 
+                  <span class="zc-list-icon">
+                    <svg class="zc-black"> <use xlink:href="#svg-back-icon"> </use> </svg>
+                  </span>
+                  <span class="zc-list-text">My Portals </span>  
+                </li>
+                <!--								<li mtype="separator" class="bdrline"></li>-->
+
+                <li><span class="zc-list-icon">
+                  <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+                  </span> <span class="zc-list-text">Smart Soln </span>  </li>
+                <li><span class="zc-list-icon zc-tick-icon">
+                  <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+                  </span> <span class="zc-list-text">Zoho Partner Network </span> </li>
+                <li> <span class="zc-list-icon">
+                  <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+                  </span><span class="zc-list-text">Zoho Motivator </span> </li>
+                <li> <span class="zc-list-icon">
+                  <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+                  </span><span class="zc-list-text"> DC Partner Network </span> </li>
+              </ul>
+            </div>	
+          </div>	
+          <div class="zc-account-footer"> 
+            This code account is owned by Stephen 
+          </div>
+        </div>
+      
+      <!-- PROGRESSBAR IN TOP  -->
+      <div id="Lineprogressbar" class="line-progressbar">
+        <span class="shadow"> </span>
+      </div>
+
+      <script src="../third-party/chosen/chosen.jquery.js" type="text/javascript"></script>
+      
+      <script type="text/javascript">
+        var config = {
+          '.chosen-select'           : {},
+          '.chosen-select-deselect'  : {allow_single_deselect:true},
+          '.chosen-select-no-single' : {disable_search_threshold:10},
+          '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+          '.chosen-select-width'     : {width:"95%"}
+        }
+        for (var selector in config) {
+          $(selector).chosen(config[selector]);
+        }
+
+        $(document).ready(function(){ 
+          $("body").ztooltip({
+            pointer  : false
+          });
+          //INIT ZMENU 
+          ZComponents.init();
+          $("#myTab li:eq(0) a").tab('show');
+          $("#chooseCloud li:eq(0) a").tab('show');        
+        });
+      </script>
+      <!-- <script src="../js/custom-scroll.js" type="text/javascript"> </script>  -->
+      <script>
+       $("#svg-template").load("html-templates/svg.html");
+      </script>
+      
+    </body>
+  </html>
