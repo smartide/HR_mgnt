@@ -1,0 +1,3201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Zoho Code - Projects </title>
+
+  <!-- FAV ICON -->
+  <link rel="icon" type="image/png" href="../favicon.png"/>
+
+  <!-- CHOSEN CSS -->    
+  <link href="../third-party/chosen/chosen.css" rel="stylesheet" type="text/css">
+
+  <!-- ZAUTOSUGGEST CSS -->
+  <link href="../third-party/ui-components/css/zsuggestfield.css" rel="stylesheet" type="text/css">
+
+  <link href="../third-party/ui-components/css/ztokenfield.css" rel="stylesheet" type="text/css" >
+
+  <!-- ZMENU CSS -->
+  <link href="../third-party/ui-components/css/zmenu.css" rel="stylesheet" type="text/css"/>
+
+  <!-- ZSCROLL CSS -->
+  <link href="../third-party/ui-components/css/ui.zscroll.css" rel="stylesheet" type="text/css">
+
+  <!-- ZTOOLTIP CSS -->
+  <link href="../third-party/ui-components/css/ztooltip.css" rel="stylesheet" type="text/css">
+
+  <!-- ZPOPOVER CSS -->
+  <link href="../third-party/ui-components/css/zpopover.css" rel="stylesheet" type="text/css">
+  
+  <!-- ZCOMPONENTS UTILITIES -->
+  <link href="../third-party/ui-components/css/utilities/zcomponents-utilities.css" rel="stylesheet" type="text/css">
+
+  <!-- CODE CSS -->
+  <link href="../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../css/typography.css" rel="stylesheet" type="text/css">
+  <link href="../css/icons.css" rel="stylesheet" type="text/css">   
+  <link href="../css/component-custom.css" rel="stylesheet" type="text/css">
+  <link href="../css/base.css" rel="stylesheet" type="text/css">
+  <link href="../portal-owner-view/css/portal-owner.css" rel="stylesheet" type="text/css">
+
+  <!--- MEDIA QUERIES CSS -->
+  <link href="../css/media-query.css" rel="stylesheet" type="text/css">
+
+  <!-- JQUERY MIN JS -->
+  <script src="../js/jquery.min-1.11.3.js"></script>
+
+  <script>
+    window.onload = function() {
+      //GET RENAME PROJECT NAME
+      var getrenameprojectDetails = JSON.parse(localStorage.getItem("localrenameprojectDetails"));
+      var getRename = getrenameprojectDetails["name"];
+      $("#zc-card-data").find(".zc-card-title h2").empty().append(getRename);
+      $("#zc-card-data").find(".zc-card-title h2").attr("data-title", getRename);
+
+      var getrenameprojectDetails1 = JSON.parse(localStorage.getItem("localrenameprojectDetails1"));
+      var getRename1 = getrenameprojectDetails1["name"];
+      $("#zc-card-data-1").find(".zc-card-title h2").empty().append(getRename1);
+      $("#zc-card-data-1").find(".zc-card-title h2").attr("data-title", getRename1);
+
+      var getrenameprojectDetails2 = JSON.parse(localStorage.getItem("localrenameprojectDetails2"));
+      var getRename2 = getrenameprojectDetails2["name"];
+      $("#zc-card-data-2").find(".zc-card-title h2").empty().append(getRename2);
+      $("#zc-card-data-2").find(".zc-card-title h2").attr("data-title", getRename2);
+
+      var getrenameprojectDetails3 = JSON.parse(localStorage.getItem("localrenameprojectDetails3"));
+      var getRename3 = getrenameprojectDetails3["name"];
+      $("#zc-card-data-3").find(".zc-card-title h2").empty().append(getRename3);
+      $("#zc-card-data-3").find(".zc-card-title h2").attr("data-title", getRename3);
+
+      var getprojectDetails = JSON.parse(localStorage.getItem("localprojectDetails"));
+      var getprojectName = getprojectDetails["name"];
+      var getprojectDesc = getprojectDetails["desc"];
+      var getprojectAvatar = getprojectDetails["avatar"];
+
+      var card =  '<div class="zc-card"><div class="zc-card-header"><span class="zc-card-logo"><img src='+getprojectAvatar+'> </span><span class="zc-card-title"><h2>'+getprojectName+'</h2> <span class="zc-title-desc">  Zoho Service</span></span><span class="zc-more"> <svg> <use xlink:href="#svg-more-icon"> </use> </svg> </span> </div><div class="zc-card-desc"><p>'+getprojectDesc+' </p></div><div class="zc-card-footer"> Open Project </div></div>';
+
+      $('#zc-my-projects .zc-card-view').append(card);
+
+      localStorage.clear();  
+    };
+  </script>
+
+</head>
+<body class="zc-greyBg">
+
+  <!-- SVG TEMPLATE -->
+  <div id="svg-template"> </div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar-scroll" class="sidebar">  
+    <div class="sidebar-wrap">
+      <div class="code-logo" title="Zoho Code">
+        <img src="../images/zoho-code-logo.svg">
+      </div> 
+      <ul class="sidebar-nav">
+        <li>
+          <a href="javascript:void(0)" id="zc-new-project"> 
+            <span class="icon nav-icon"> 
+              <svg class="zc-green"> <use xlink:href="#svg-new-icon"> </use> </svg>                     
+            </span>
+            New Project 
+          </a>
+        </li>
+        <li class="selected">
+          <a id="zc-projects" href="javascript:void(0)"> 
+            <span class="icon nav-icon">
+              <svg class="zc-yellow"> <use xlink:href="#svg-project-icon"> </use> </svg> 
+            </span>
+            Projects 
+          </a>
+        </li>
+        <li> 
+          <a id="zc-repositories" href="javascript:void(0)">
+            <span class="icon nav-icon">
+              <svg class="zc-blue"> <use xlink:href="#svg-repositories-icon"> </use> </svg>
+            </span>
+            Zoho Repositories  
+          </a>
+        </li>
+        <li class="zc-nav-title"> ADMINISTRATION  </li>
+        <li> 
+          <a href="javascript:void(0)" id="admin-portal-info">
+            <span class="icon nav-icon">
+              <svg class="zc-red"> <use xlink:href="#svg-portal-icon"> </use> </svg> 
+            </span>
+            Portal Info 
+          </a>
+        </li>
+        <li> 
+          <a href="javascript:void(0)" id="admin-users">
+            <span class="icon nav-icon"> 
+              <svg class="zc-violet"> <use xlink:href="#svg-user-icon"> </use> </svg> 
+            </span>
+            Users 
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <div id="zc-article" class="article zc-projectList-view">
+    <!-- TOPBAR -->
+    <div class="zc-topbar zc-greyBg"> 
+      <div id="zc-viewBreadcrumbWrap-Project" class="zc-viewBreadcrumb" style="display: none">
+        <span id="set-projectId" class="zc-rootView">My Projects</span>
+        <span class="icon-10 zc-viewNavArrow"> 
+          <svg class="zc-black"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrowRight-icon"> </use> </svg>
+        </span>
+        <span id="zc-rep-name" class="zc-activeView">Zoho Docs</span>
+      </div>
+      <ul class="db-toolbar zc-fright"> 
+        <li class="ide-menu"> 
+          <button id="code-notification" class="zc-btn zc-grey icon" title="Notifications">
+            <span class="zc-notifi-count bdr-white">2</span>
+            <i class="icon">  <svg class="zc-black"> <use xlink:href="#svg-notification-icon"> </use> </svg> </i> 
+          </button>
+        </li>
+        <li class="ide-menu"> 
+          <button id="zc-help-btn" data-menu-id="help-menu" data-active-class="active" class="zc-btn zc-grey icon" title="Help">
+            <i class="icon">  <svg class="zc-black"> <use xlink:href="#svg-help-icon"> </use> </svg> </i> 
+          </button>
+        </li>
+        <li class="zc-accountuser-img">
+          <span id="zc-user-menu" class="ide-user-pic">   <img src="../images/user-img.jpg">   </span>
+        </li>
+      </ul>
+    </div>
+    <div class="zc-fixedHeader">
+      <div class="zc-tabWrap zc-project-tab">
+        <ul id="project-list-tab" class="nav nav-tabs" id="myTab">
+          <li class="active"><a data-toggle="tab" href="#zc-my-projects" aria-expanded="true"> My Projects </a></li>
+          <li id="zc-create-new-project"><a data-toggle="tab" href="#zc-shared-with-me">Shared with Me</a></li>
+        </ul>
+      </div> 
+      <!-- PROJECT INFO HEADER -->
+
+      <div id="project-info-tabs" class="zc-tabs zc-hide"> 
+        <span class="zc-tab project-info"> 
+          <span class="icon"> 
+            <svg class="zc-blue">  <use xlink:href="#svg-projectinfo-icon"> </use> </svg> 
+          </span>Info
+        </span>
+        <span class="zc-tab userView-projectActivity"> 
+          <span class="icon"> 
+            <svg class="zc-blue"> <use xlink:href="#svg-activityIcon-icon"> </use> </svg> 
+          </span>Activitiy
+        </span>
+        <span class="zc-tab source-code">  
+          <span class="icon"> 
+            <svg class="zc-green"> <use xlink:href="#svg-source-icon"> </use> </svg> 
+          </span>Files
+        </span>
+      </div>
+      <button id="zc-open-project" class="zc-btn zc-btn-small zc-gradient zc-project-open zc-hide"> Open </button>
+
+    </div>
+    <div class="zc-content">
+      <div id="project-listtab-content" class="tab-content">
+        <div id="zc-my-projects" class="tab-pane active">  
+          <div class="zc-card-view zc-tab-animate zc-clearfix fade-in">
+            <div id="zc-card-data" class="zc-card">
+              <button id="zc-more" data-menu-id="project-action" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">             <i class="icon">
+                <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-6"> 
+                  <svg> <use xlink:href="#svg-docs-avatar"> </use> </svg>
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Zoho Docs"> Zoho Docs </h2>
+                  <span class="zc-title-desc">
+                    Zoho Service
+                  </span>
+                </span>
+              </div>
+              <div class="zc-card-desc">
+                <p></p>
+              </div>
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li data-name="gjayakrishnan" data-mail="gjayakrishnan@zohocorp.com" data-permission="Can Read Only" data-issue="10" data-commits="5"> <img src="../images/jk.jpg"/> </li> 
+                  <li data-name="manojkumar.viswanathan"  data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Write" data-issue="6" data-commits="2"> <img src="../images/manoj.png"/> </li> 
+                  <li data-name="ram" data-mail="ram@zohocorp.com" data-permission="Can Write" data-issue="2" data-commits="1"> <img src="../images/kumar.jpg"/>
+                  <li data-name="vinothkumar.kp"  data-mail="vinothkumar.kp@zohocorp.com" data-permission="Owner" data-issue="3" data-commits="16"> <img src="../images/vinoth.png"/> </li> 
+                </ul>
+              </div>  
+            </div>   
+            <div id="zc-card-data-1" class="zc-card">
+              <button id="zc-more-1" data-menu-id="project-action-1" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">
+                <i class="icon">
+                  <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-15">
+                  <svg> <use xlink:href="#svg-hr-avatar"> </use> </svg> 
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Human Machine Interface">Human Machine Inter... </h2>
+                  <span class="zc-title-desc">
+                    Go </span>
+                </span>
+              </div>
+              <div class="zc-card-desc">
+                <p>Drag people where are there. The Novariant human-machine interface is the device that a machine operator uses to multiple display options... </p>
+              </div>
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li data-name="ayyasami.t" data-mail="ayyasami.t@zohocorp.com" data-permission="Can Read Only" data-issue="2" data-commits="1"> <img src="../images/ays.jpg"/> </li> 
+                  <li data-name="nadeemahamed.b" data-mail="nadeemahamed.b@zohocorp.com" data-permission="Can Read Only" data-issue="4" data-commits="2"> <img src="../images/nad.png"/> </li> 
+                  <li data-name="vinothkumar.kp" data-mail="vinothkumar.kp@zohocorp.com" data-permission="Owner" data-issue="6" data-commits="2"> <img src="../images/vinoth.png"/> </li> 
+                </ul>
+              </div>
+            </div> 
+            <div id="zc-card-data-2" class="zc-card">
+              <button id="zc-more-2" data-menu-id="project-action-2" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">
+                <i class="icon">
+                  <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-30">
+                  <svg> <use xlink:href="#svg-invoice-avatar"> </use> </svg>
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Invoice Management">Invoice Management </h2>
+                  <span class="zc-title-desc">
+                    Ruby</span>
+                </span>
+              </div>
+              <div class="zc-card-desc">
+                <p>ERP application designed for small-to-medium-sized companies. It can handle debit invoices, credit invoices, projects with timelogs... </p>
+              </div>
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li data-name="gjayakrishnan" data-mail="gjayakrishnan@zohocorp.com" data-permission="Can Read Only" data-issue="4" data-commits="2"> <img src="../images/jk.jpg"/> </li> 
+                  <li data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Write" data-issue="3" data-commits="1"> <img src="../images/manoj.png"/> </li> 
+                  <li data-name="ram" data-mail="ram@zohocorp.com" data-permission="Can Read Only" data-issue="6" data-commits="12"> <img src="../images/kumar.jpg"/> </li> 
+                  <li data-name="vinothkumar.kp" data-mail="vinothkumar.kp@zohocorp.com" data-permission="Owner" data-issue="4" data-commits="8"> <img src="../images/vinoth.png"/> </li> 
+                </ul>
+              </div>
+
+            </div> 
+            <div id="zc-card-data-3" class="zc-card">
+              <button id="zc-more-3" data-menu-id="project-action-3" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">
+                <i class="icon">
+                  <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-9">
+                  <svg> <use xlink:href="#svg-mobile-avatar"> </use> </svg> 
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Gateway GPS 2016">Gateway GPS 2016 </h2>
+                  <span class="zc-title-desc">
+                    Tomcat </span>
+                </span>
+
+              </div>
+              <div class="zc-card-desc">
+                <p>GPS works by providing information on exact asset location and is used commercially to track the movement of a vehicle or person...  </p>
+              </div>
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission= "Can Write" data-issue="3" data-commits="16"> <img src="../images/manoj.png"/> </li> 
+                  <li data-name="vinothkumar.kp" data-mail="vinothkumar.kp@zohocorp.com" data-permission="Owner" data-issue="4" data-commits="2"> <img src="../images/vinoth.png"/> </li> 
+
+                </ul>
+              </div>
+
+            </div> 
+          </div>
+        </div>
+        <div id="zc-shared-with-me" class="tab-pane">  
+          <div class="zc-card-view zc-tab-animate zc-clearfix">
+            <div id="zc-card-data-4" class="zc-card zc-shared">
+              <button id="zc-more-4"  data-menu-id="project-action-4" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">
+                <i class="icon">
+                  <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-23"> 
+                  <svg> <use xlink:href="#svg-social-avatar"> </use> </svg> 
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Human Machine Interface"> Feedback Form </h2>
+                  <span class="zc-title-desc">
+                    Go </span>
+
+                </span>
+
+              </div>
+              <div class="zc-card-desc">
+                <p>Drag people where are there. The Novariant human-machine interface is the device that a machine operator uses to multiple display options... </p>
+              </div>
+
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li class="project-owner" data-name="vinothkumar.kp" data-mail="vinothkumar.kp@zohocorp.com" data-permission="Owner" data-issue="10" data-commits="5"> <img src="../images/vinoth.png"> </li> 
+                  <li data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Write" data-issue="6" data-commits="2"> <img src="../images/manoj.png"> </li> 
+                  <li data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Write" data-issue="3" data-commits="16"> <img src="../images/ram.jpg"> </li>
+                  <li data-name="ram" data-mail="ram@zohocorp.com" data-permission="Can Read Only" data-issue="3" data-commits="1"> <img src="../images/kumar.jpg"> </li>
+
+                </ul>
+              </div> 
+
+
+            </div>   
+            <div id="zc-card-data-5" class="zc-card zc-shared">
+              <button id="zc-more-5"  data-menu-id="project-action-5" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">
+                <i class="icon">
+                  <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-25"> 
+                  <svg> <use xlink:href="#svg-application-avatar"> </use> </svg> 
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Invoice Management"> Mail Application</h2>
+                  <span class="zc-title-desc">
+                    Ruby</span>
+                </span>
+
+              </div>
+              <div class="zc-card-desc">
+                <p>ERP application designed for small-to-medium-sized companies. It can handle debit invoices, credit invoices, projects with timelogs... </p>
+              </div>
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li class="project-owner" data-name="ram" data-mail="ram@zohocorp.com" data-permission="Can Read Only" data-issue="3" data-commits="1"> <img src="../images/kumar.jpg"> </li>
+                  <li data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Write" data-issue="6" data-commits="2"> <img src="../images/manoj.png"> </li> 
+                  <li data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Write" data-issue="3" data-commits="16"> <img src="../images/ram.jpg"> </li>
+                </ul>
+              </div>
+
+            </div>   
+            <div id="zc-card-data-6" class="zc-card zc-shared">
+              <button id="zc-more-6"  data-menu-id="project-action-6" data-active-class="active" class="zc-btn zc-btn-small icon zc-more">
+                <i class="icon">
+                  <svg class="zc-black"> <use xlink:href="#svg-verticalMore-icon"> </use> </svg>
+                </i>
+              </button>
+              <div class="zc-card-header">
+                <span class="zc-card-logo"><span class="zc-avatar avatar-11"> 
+                  <svg> <use xlink:href="#svg-sales2-avatar"> </use> </svg> 
+                  </span> </span>
+                <span class="zc-card-title">
+                  <h2 data-title="Gateway GPS 2016">Redesign CSS Framework </h2>
+                  <span class="zc-title-desc">
+                    Tomcat </span>
+                </span>
+
+              </div>
+              <div class="zc-card-desc">
+                <p>GPS works by providing information on exact asset location and is used commercially to track the movement of a vehicle or person...  </p>
+              </div>
+              <div class="zc-shared-list"> 
+                <ul>
+                  <li class="project-owner" data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Write" data-issue="3" data-commits="16"> <img src="../images/ram.jpg"> </li>
+                  <li data-name="ram" data-mail="ram@zohocorp.com" data-permission="Can Read Only" data-issue="3" data-commits="1"> <img src="../images/kumar.jpg"> </li>
+
+                </ul>
+              </div>
+
+
+
+
+            </div>  
+
+          </div>
+        </div>  
+      </div> 
+      <div id="project-infotab-content" class="tab-content zc-info-wrap">
+        <div class="zc-project-info zc-tab-animate fade-in zc-tab-active zc-clearfix">
+          <div class="zc-project-infowrap">
+            <h1> Basic Info </h1>
+            <div class="zc-row margin-top-0">
+              <label> Created On </label> <span> July 20, 2016 at 10:50 AM </span>
+            </div> 
+            <div class="zc-row"> 
+              <label> Last Modified On</label> <span> July 28, 2016 at 10:50 AM </span>
+            </div>
+            <div class="zc-row">
+              <label> Size </label> <span> 1.35 GB </span> 
+            </div>
+
+            <h1> Description </h1>    
+            <div class="zc-field-wrap ">
+              <div class="zc-field p-desc-wrap">
+                <p class="zc-project-desc">
+                  <span> ERP application designed for small-to-medium-sized companies. It can handle debit invoices, credit invoices, projects with timelogs management, and much more.</span>
+                </p>	
+              </div>
+              <div class="desc-btn-wrap">
+                <button id="add-desc" class="zc-btn zc-btn-small zc-gradient"> Save </button>
+                <button id="cancel-desc" class="zc-btn zc-btn-small zc-secondary"> Cancel </button>
+              </div>	
+            </div>
+
+            <h1 id="zc-build"> Build URL </h1>     
+            <div id="zc-build-url" class="zc-field-wrap"> 
+              <div class="zc-field">
+                <a href="#" class="zc-buildUrl"> http://zoho-build3/products/mycomputer/default/Mar_26_2016/Zoho_docs.zip </a>
+              </div>
+            </div>
+
+            <h1 id="zc-work"> Working Branch </h1>
+            <div id="zc-work-branch" class="zc-field-wrap">
+              <div class="zc-field">
+                ZOHODOCS_CUSTOM_BUTTON_BRANCH
+              </div>
+            </div>
+
+            <h1 id="other-envir">Development Environment </h1>     
+            <div class="zc-field-wrap zc-enviro-wrap">
+              <div class="zc-envir-logo-wrap">
+                <span class="zc-enviro-logo"> 
+                  <span class="enviro-logo ruby-logo"> </span>
+                </span>
+              </div>   
+              <div class="zc-envir-desc"> 
+                <p> <span class="zc-title">Name: </span> <span id="zc-enviro-name">Ruby</span></p>
+                <p class="zc-package-desc"> <span class="zc-title">Packages:</span> <span id="zc-enviro-desc">RVM and Ruby.</span></p>
+              </div>
+            </div>
+
+            <h1 id="other-rep">Repository </h1>    
+            <div class="zc-field-wrap zc-selected-repos">
+              <span class="zc-repos-logo"> 
+                <span class="icon-50">
+                  <svg class="zc-white"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-github-icon"> </use> </svg>
+                </span>
+              </span>
+              <span class="zc-repos-url">
+                <p> <span class="zc-title">Repository URL:</span></p>
+                <p class="zc-selected-url">
+                  <a href="#"> https://github.com/ayyasami/GPS-soln.git</a>
+                </p>
+              </span>
+            </div>
+
+            <h1>Dependent Repositories</h1>
+            <div class="dependent-rep-wrap">
+              <div id="dependent-rep" class="zc-field-wrap zc-selected-repos">
+                <span class="zc-repos-logo"> 
+                  <span class="icon-50">
+                    <svg class="zc-white"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-github-icon"> </use> </svg>
+                  </span>
+                </span>
+                <span class="zc-repos-url">
+                  <p> <span class="zc-title">Repository URL:</span></p>
+                  <p class="zc-selected-url">
+                    <a href="#"> https://github.com/ayyasami/cssframework.git</a>
+                  </p>
+                </span>
+              </div>
+
+              <div id="dependent-rep-1" class="zc-field-wrap zc-selected-repos">
+                <span class="zc-repos-logo"> 
+                  <span class="icon-50">
+                    <svg class="zc-white"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-github-icon"> </use> </svg>
+                  </span>
+                </span>
+                <span class="zc-repos-url">
+                  <p> <span class="zc-title">Repository URL:</span></p>
+                  <p class="zc-selected-url">
+                    <a href="#">  https://github.com/ayyasami/jqueryui.git</a>
+                  </p>
+                </span>
+              </div>
+            </div>
+
+            <h1> Co-developers </h1>
+            <div class="zc-shared-list"> 
+
+              <ul>
+
+                <li> 
+                  <img src="../images/user-1.png">
+                  <span class="zc-user-info">
+                    <span class="zc-user-name">James Anderson </span>
+                    <span class="zc-user-mail">jamesanderson@gmail.com</span>
+                  </span>
+
+                </li> 
+                <li> <img src="../images/user-2.png">
+                  <span class="zc-user-info">
+                    <span class="zc-user-name">Ann Tran </span>
+                    <span class="zc-user-mail">arrtran@gmail.com</span>
+                  </span>
+
+                </li> 
+                <li> <img src="../images/user-3.png">
+                  <span class="zc-user-info">
+                    <span class="zc-user-name">Stephen Warren </span>
+                    <span class="zc-user-mail">stephenwarren@gmail.com</span>
+                  </span>
+                </li>  
+
+              </ul>
+            </div> 
+
+          </div>
+        </div>
+        <div class="zc-projectactivitiy-content zc-tab-animate zc-clearfix">
+          <div id="myProjectActivity" class="zc-projectActivity">
+            <div id="container-highchart" class="zc-projectActivityChart"> </div>
+            <div class="zc-projectActivityWrap">
+              <div class="zc-activityFilter"> 
+                <select id="zc-activityfilter" class="chosen-select-no-single chosen-noBorder" style="width:auto;" title="Activity Filter">          
+                  <option value=""></option>
+                  <option value="All Activity" selected>All Activity</option>
+                  <option value="Create">Creates</option>
+                  <option value="Commit">Commits</option>
+                  <option value="Delete">Deletes</option>
+                </select>
+              </div>
+              <ul class="zc-activityList">
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2017" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Today </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-addCommentIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-addComment-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader">  <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> added a comment in <a href="#"> application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">3:35 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-editedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-edit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader">   <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> edited a comment in<a href="#">  application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">2:20 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-deletedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-delete-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader">  <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> deleted a comment in <a href="#">  application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">10:39 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2017-mar" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Yesterday </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You   </span> pushed 5 commits to <a href="#"> default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2017-feb" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Feb 26, 2017 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-revokedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-accessRevoked-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> restricted access to <a href="#" class="zc-showNameCard" data-name="ayyasami" data-mail="Ayyasami.t@zohocorp.com" data-image="../images/ays.jpg">Ayyasami</a>.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2017-jan" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jan 14, 2017 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-changePerIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-changePermission-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold">  You </span> changed permission of  <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 1:04 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Dec 21, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a>  pushed 5 commits to <a href="#">default</a>  branch.</div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">11:22 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-nov" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Nov 21, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-deletedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-delete-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold"> You</span>  deleted <a href="#">  base.js</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 10:05 AM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-oct" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Oct 24, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-changePerIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-changePermission-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold"> You</span> changed permission of <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 1:04 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-sep" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Sep 24, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-editedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-edit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader">   <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> edited a comment in <a href="#">  application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">2:20 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-aug" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Aug 21, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a>  pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-jul" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jul 08, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You   </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-jun" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jun 02, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-may" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> May 26, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> pushed 1 commits to <span class="zc-font-bold">default</span> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#"> default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-apr" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Apr 18, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-mar" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Mar 23, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-feb" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Feb 15, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You   </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2016-jan" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jan 25, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2015" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Feb 16, 2015 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-createdIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-create-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader">  <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> created <a href="#">application.js</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">7.40 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-uploadIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-upload-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"><a href="#" class="zc-showNameCard" data-name="ayyasami" data-mail="Ayyasami.t@zohocorp.com" data-image="../images/ays.jpg"> Ayyasami</a>   uploaded 3 files </div>
+                      <div class="zc-activityContent"> 
+                        <ul class="zc-fileList"> 
+                          <li> 
+                            <a href="#">
+                              <i class="icon"> 
+                                <svg class="zc-black"> <use xlink:href="#svg-css-icon"> </use> </svg>  
+                              </i> style.css
+                            </a> 
+                          </li>
+                          <li> 
+                            <a href="#">
+                              <i class="icon"> 
+                                <svg class="zc-black"> <use xlink:href="#svg-css-icon"> </use> </svg>  
+                              </i> base.css
+                            </a> 
+                          </li>
+                          <li> 
+                            <a href="#">
+                              <i class="icon"> 
+                                <svg class="zc-black"> <use xlink:href="#svg-js-icon"> </use> </svg>  
+                              </i> adminConfig.js
+                            </a> 
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">5.20 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+                <ul class="zc-timelineWrap">
+                  <li id="gotoTimeline-2015-jan" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jan 12, 2015 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-shareIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-share-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold">You</span> shared with   <a href="#" class="zc-showNameCard" data-name="ayyasami" data-mail="Ayyasami.t@zohocorp.com" data-image="../images/ays.jpg"> Ayyasami</a>, <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a> and  <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> </div>
+                      <div class="zc-activityContent zc-clearfix"> 
+                        <div class="zc-userWrap zc-activitySharedUsers">
+                          <span class="zc-user-pic" data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Read and Write"> <img src="../images/ays.jpg"></span>
+                          <span class="zc-user-pic" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Read Only"> <img src="../images/manoj.png"></span>
+                          <span class="zc-user-pic" data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Read and Write"> <img src="../images/ram.jpg"></span>
+
+                        </div>
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">7:56 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-renameIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-rename-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold"> You</span>  renamed this project as  <a href="#"> Invoice Management</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 2:19 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-createdIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-create-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold"> You </span> created the project </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">4:19 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+              </ul>
+              <div class="zc-activityTimeline">
+                <div id="zc-timelineAccordion" class="zc-accordionGroup">
+                  <div class="zc-accordionPanel active">
+                    <div id="zc-projectTimeline-2017" class="zc-accordionHeader"> <a href="#gotoTimeline-2017"> 2017 </a> </div>
+                    <div class="zc-accordionContent"> 
+                      <ul class="zc-monthsList">
+                        <li> <a href="#gotoTimeline-2017-mar" class="active"> Mar </a> </li>
+                        <li> <a href="#gotoTimeline-2017-feb"> Feb </a> </li>
+                        <li> <a href="#gotoTimeline-2017-jan"> Jan </a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="zc-accordionPanel">
+                    <div id="zc-projectTimeline-2016" class="zc-accordionHeader"> <a href="#gotoTimeline-2016"> 2016 </a> </div>
+                    <div class="zc-accordionContent zc-accordionCollapse"> 
+                      <ul class="zc-monthsList">
+                        <li><a href="#gotoTimeline-2016"> Dec </a> </li>
+                        <li><a href="#gotoTimeline-2016-nov"> Nov </a> </li>
+                        <li><a href="#gotoTimeline-2016-oct"> Oct </a> </li>
+                        <li><a href="#gotoTimeline-2016-sep"> Sep  </a> </li>
+                        <li><a href="#gotoTimeline-2016-aug"> Aug </a> </li>
+                        <li><a href="#gotoTimeline-2016-jul"> Jul </a> </li>
+                        <li><a href="#gotoTimeline-2016-jun"> Jun </a> </li>
+                        <li><a href="#gotoTimeline-2016-may"> May </a> </li>
+                        <li><a href="#gotoTimeline-2016-apr"> Apr </a> </li>
+                        <li><a href="#gotoTimeline-2016-mar"> Mar </a> </li>
+                        <li><a href="#gotoTimeline-2016-feb"> Feb </a> </li>
+                        <li><a href="#gotoTimeline-2016-jan"> Jan </a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="zc-accordionPanel">
+                    <div id="zc-projectTimeline-2015" class="zc-accordionHeader"> <a href="#gotoTimeline-2015"> 2015 </a> </div>
+                    <div class="zc-accordionContent  zc-accordionCollapse"> 
+                      <ul class="zc-monthsList">
+                        <li><a href="#gotoTimeline-2015-feb"> Feb </a> </li>
+                        <li><a href="#gotoTimeline-2015-jan"> Jan </a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="sharedProjectActivity"  class="zc-projectActivity">
+            <div id="container-highchart-shared" class="zc-projectActivityChart"> </div>
+            <div class="zc-projectActivityWrap">
+              <div class="zc-activityFilter"> 
+                <select id="zc-activityfilter" class="chosen-select-no-single chosen-noBorder" style="width:auto;" title="Activity Filter">          
+                  <option value=""></option>
+                  <option value="All Activity" selected>All Activity</option>
+                  <option value="Create">Creates</option>
+                  <option value="Commit">Commits</option>
+                  <option value="Delete">Deletes</option>
+                </select>
+              </div>
+              <ul class="zc-activityList">
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2017" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Today </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-addCommentIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-addComment-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> added a comment in <a href="#"> application.js</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">3:35 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-editedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-edit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> edited a comment in <a href="#"> application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">2:20 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-deletedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-delete-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> deleted a comment in <a href="#"> application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">10:39 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2017-mar" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Yesterday </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You   </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2017-feb" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Feb 26, 2017 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-downloadIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-download-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> downloaded <a href="#">base.js</a>.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2017-jan" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jan 14, 2017 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-changePerIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-changePermission-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold">  You </span> changed permission of  <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 1:04 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Dec 21, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a>  pushed 5 commits to    <a href="#">default </a>  branch.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">11:22 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-nov" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Nov 21, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-deletedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-delete-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <span class="zc-font-bold"> You </span>  deleted <a href="#"> base.js</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 10:05 AM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-oct" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Oct 24, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#"> default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-changePerIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-changePermission-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> changed permission of <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 1:04 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-sep" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Sep 24, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-editedIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-edit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> edited a comment in <a href="#"> application.js</a>.  </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">2:20 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-aug" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Aug 21, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-downloadIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-download-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"><a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> downloaded <a href="#">application.js</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 8:27 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-jul" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jul 08, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-jun" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jun 02, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-may" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> May 26, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> pushed 1 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-apr" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Apr 18, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-mar" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Mar 23, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-feb" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Feb 15, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You   </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2016-jan" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jan 25, 2016</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <span class="zc-font-bold"> You  </span> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-pushIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-pushCommit-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> 
+                        <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> pushed 5 commits to <a href="#">default</a> branch.
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 6:33 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2015" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Feb 16, 2015 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-downloadIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-download-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> downloaded <a href="#">application.js</a>.   </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 8:27 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-createdIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-create-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> created <a href="#">application.js</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">7.40 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-uploadIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use  xlink:href="#svg-upload-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ayyasami" data-mail="Ayyasami.t@zohocorp.com" data-image="../images/ays.jpg"> Ayyasami</a>   uploaded 3 files </div>
+                      <div class="zc-activityContent"> 
+                        <ul class="zc-fileList"> 
+                          <li> 
+                            <a href="#">
+                              <i class="icon"> 
+                                <svg class="zc-black"> <use xlink:href="#svg-css-icon"> </use> </svg>  
+                              </i> style.css
+                            </a> 
+                          </li>
+                          <li> 
+                            <a href="#">
+                              <i class="icon"> 
+                                <svg class="zc-black"> <use xlink:href="#svg-css-icon"> </use> </svg>  
+                              </i> base.css
+                            </a> 
+                          </li>
+                          <li> 
+                            <a href="#">
+                              <i class="icon"> 
+                                <svg class="zc-black"> <use xlink:href="#svg-js-icon"> </use> </svg>  
+                              </i> adminConfig.js
+                            </a> 
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">5.20 PM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+
+                <ul class="zc-timelineWrap">
+                  <li id="share-gotoTimeline-2015-jan" class="zc-feedInfo">
+                    <div class="zc-greycircle"> 
+                      <span class="zc-icon"></span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader zc-dateHeader"> Jan 12, 2015 </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-shareIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-share-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> shared with <span class="zc-font-bold">You</span>, <a href="#" class="zc-showNameCard" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-image="../images/manoj.png"> Manojkumar Viswanathan</a>, <a href="#" class="zc-showNameCard" data-name="ayyasami" data-mail="Ayyasami.t@zohocorp.com" data-image="../images/ays.jpg"> Ayyasami</a>  and <a href="#" class="zc-showNameCard" data-name="Jayakrishnan" data-mail="gjayakrishnan@zohocorp.com"  data-image="../images/jk.jpg"> Jayakrishnan</a> </div>
+                      <div class="zc-activityContent zc-clearfix"> 
+                        <div class="zc-userWrap zc-activitySharedUsers">
+                          <span class="zc-user-pic" data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Read Only"> <img src="../images/manoj.png"></span>
+                          <span class="zc-user-pic" data-name="ayyasami" data-mail="ayyasami.t@zohocorp.com" data-permission="Can Read and Write"> <img src="../images/ays.jpg"></span>
+                          <span class="zc-user-pic" data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Read and Write"> <img src="../images/ram.jpg"></span>
+                          <span class="zc-user-pic" data-name="ramkumar.g" data-mail="gjayakrishnan@zohocorp.com" data-permission="Can Read and Write"> <img src="../images/jk.jpg"></span>
+
+                        </div>
+                      </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">7:56 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-renameIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-rename-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a>  renamed this project as  <a href="#">Invoice Management</a>. </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time"> 2:19 PM</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="zc-activityIcon">
+                      <span class="zc-icon zc-createdIcon">
+                        <i class="icon">
+                          <svg class="zc-white"> <use xlink:href="#svg-create-icon"> </use> </svg>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="zc-activityDetails"> 
+                      <div class="zc-activityHeader"> <a href="#" class="zc-showNameCard" data-name="ramkumar" data-mail="ramkumar.g@zohocorp.com" data-image="../images/ram.jpg">Ramkumar</a> created the project </div>
+                      <div class="zc-activityFooter">
+                        <span class="zc-time">4:19 AM</span>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>  
+              </ul>
+              <div class="zc-activityTimeline">
+                <div id="zc-share-timelineAccordion" class="zc-accordionGroup">
+                  <div class="zc-accordionPanel active">
+                    <div id="zc-share-projectTimeline-2017" class="zc-accordionHeader"> <a href="#share-gotoTimeline-2017"> 2017 </a> </div>
+                    <div class="zc-accordionContent"> 
+                      <ul class="zc-monthsList">
+                        <li> <a href="#share-gotoTimeline-2017-mar" class="active"> Mar </a> </li>
+                        <li> <a href="#share-gotoTimeline-2017-feb"> Feb </a> </li>
+                        <li> <a href="#share-gotoTimeline-2017-jan"> Jan </a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="zc-accordionPanel">
+                    <div id="zc-share-projectTimeline-2016" class="zc-accordionHeader"> <a href="#share-gotoTimeline-2016"> 2016 </a> </div>
+                    <div class="zc-accordionContent zc-accordionCollapse"> 
+                      <ul class="zc-monthsList">
+                        <li><a href="#share-gotoTimeline-2016"> Dec </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-nov"> Nov </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-oct"> Oct </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-sep"> Sep  </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-aug"> Aug </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-jul"> Jul </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-jun"> Jun </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-may"> May </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-apr"> Apr </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-mar"> Mar </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-feb"> Feb </a> </li>
+                        <li><a href="#share-gotoTimeline-2016-jan"> Jan </a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="zc-accordionPanel">
+                    <div id="zc-share-projectTimeline-2015" class="zc-accordionHeader"> <a href="#share-gotoTimeline-2015"> 2015 </a> </div>
+                    <div class="zc-accordionContent  zc-accordionCollapse"> 
+                      <ul class="zc-monthsList">
+                        <li><a href="#share-gotoTimeline-2015-feb"> Feb </a> </li>
+                        <li><a href="#share-gotoTimeline-2015-jan"> Jan </a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>  
+        <div class="zc-source-wrap zc-tab-animate zc-clearfix">
+          <div id="zc-repository-list"> 
+            <div class="zc-repository-list zc-grid-table"> 
+              <div class="zc-grid-heading no-bg"> 
+                <div class="zc-grid-col"> Repositories </div>
+                <div class="zc-grid-col"> </div>
+                <div class="zc-grid-col"> </div>
+              </div>
+              <div id="folder-root" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-rep-icon"> </use>  </svg> </span> <span class="root-folder">Human Machine Interface</span> </div> 
+                <div class="zc-grid-col zc-hint">Main repository </div>   
+                <div class="zc-grid-col">  </div>
+              </div>
+              <div id="folder-dependent-1" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-rep-icon"> </use>  </svg> </span>  <span class="root-folder"> Css Framework </span></div> 
+                <div class="zc-grid-col zc-hint"> Dependent repository </div>  
+                <div class="zc-grid-col"> </div>
+              </div>
+              <div id="folder-dependent-2" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-rep-icon"> </use>  </svg> </span>    <span class="root-folder"> Jquery UI Widgets </span>  </div> 
+                <div class="zc-grid-col zc-hint">    Dependent repository </div>
+                <div class="zc-grid-col">  </div>
+              </div>
+            </div>
+          </div>
+          <div id="zc-source-files" class="zc-source-files zc-fleft">
+            <div id="zc-Breadcrumb" class="zc-source-header">
+              <div class="zc-source-nav">
+                <button id="zc-go-back" class="zc-btn zc-grey zc-btn-small icon" title="Back">
+                  <i class="icon">
+                    <svg class="zc-black"> <use xlink:href="#svg-back-icon"> </use> </svg>
+                  </i>
+                </button>
+              </div>
+              <div class="zc-breadcrumb-wrap"> 
+                <div id="zc-breadcrumb" class="zc-breadcrumb zc-breadcrumb-nav">
+                  <a id="zc-rootfile" class="breadcrumb-nav">  Human Machine Interface</a>
+                </div>     
+                <div class="zc-breadcrumb-more zc-menu zc-breadcrumb-nav">   </div>
+              </div>
+            </div>
+            <div class="zc-source-code zc-grid-table"> 
+
+              <div class="zc-grid-heading"> 
+                <div class="zc-grid-col  zc-grid-name is-active-sort"> Name  <span id="sort-by-name" class="icon-12 sort-icon ">
+                  <svg class="zc-black"> <use  xlink:href="#svg-arrowDown-icon"> </use> </svg>
+                  </span></div>
+                <div class="zc-grid-col  zc-grid-comments">  
+                  Commit Comment
+                </div>
+                <div class="zc-grid-col zc-grid-post"> </div>
+                <div class="zc-grid-col"> Date Committed</div>
+              </div>
+              <div id="folder-webapps" data-id="webapps" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-folder-icon"> </use>  </svg> </span> webapps </div> 
+                <div class="zc-grid-col zc-grey-text"> Update comparison page</div>  
+                <div class="zc-grid-col">  </div>
+                <div class="zc-grid-col zc-grey-text"> Feb 23 </div>
+              </div>
+              <div id="folder-resource" data-id="resources" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-folder-icon"> </use>  </svg> </span> resources </div> 
+                <div class="zc-grid-col zc-grey-text"> Merge branch 'master' into 'master'</div>  
+                <div class="zc-grid-col">  </div>
+                <div class="zc-grid-col zc-grey-text"> Feb 4 </div>
+              </div>
+              <div id="folder-source" data-id="source" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-folder-icon"> </use>  </svg> </span> source </div> 
+                <div class="zc-grid-col zc-grey-text"> Add the HTML lang attribute</div>
+                <div class="zc-grid-col"> 
+                </div>
+                <div class="zc-grid-col zc-grey-text"> Jan 21 </div>
+              </div>
+              <div id="folder-product" data-id="product" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-folder-icon"> </use>  </svg> </span> product_package </div> 
+                <div class="zc-grid-col zc-grey-text"> Identify the language of text content </div>   
+                <div class="zc-grid-col">  </div>
+                <div class="zc-grid-col zc-grey-text"> Dec 29, 2015 </div>
+              </div>
+              <div id="folder-build" data-id="build_doc" class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-folder-icon"> </use>  </svg> </span> build_doc </div> 
+                <div class="zc-grid-col zc-grey-text">Help screen reader to switch language profiles to provide the...</div> 
+                <div class="zc-grid-col">  </div>
+                <div class="zc-grid-col zc-grey-text"> Dec 12, 2015 </div>
+              </div>
+              <div class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-file-icon"> </use>  </svg> </span> .hgtags </div> 
+                <div class="zc-grid-col zc-grey-text">  Correct accent and pronunciation</div>   
+                <div class="zc-grid-col">  <span class="icon connect-icon">
+                  <svg class="zc-blue"> <use xlink:href="#svg-connect-icon"> </use>  </svg>
+                  </span> <span id="connect-post-count"> 3 Posts </span> </div>
+                <div class="zc-grid-col zc-grey-text"> Nov 19, 2015 </div>
+              </div>
+              <div class="zc-grid-row">
+                <div class="zc-grid-col"> <span class="icon"> <svg class="zc-blue"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-file-icon"> </use>  </svg> </span> context.js </div> 
+                <div class="zc-grid-col zc-grey-text"> bafed11e - Syntax updates.</div>  
+                <div class="zc-grid-col">  </div>
+                <div class="zc-grid-col zc-grey-text"> Nov 19, 2015 </div>
+              </div>
+            </div>
+            <!-- SOURCE CODE PREVIEW SAMPLE FILE -->
+            <div id="zc-preview-file">
+              <div class="code-editor">
+                <pre id="editor">  
+            //$Id$
+            var FCImport = (function($){
+                  _elementId = "importUI";    //No I18N
+                  _dialogId = "importdialog"; //No I18N
+                  _dialogIsOpened = false;
+                  return{
+                      options : {
+                          errorMessages: {},
+                          maxSize: 1000000,
+                          fileFormats:'.doc,.docx,.odt,.txt', //No I18N
+                          uploadServerStatus: true,
+                          uploadURL: FComponents.option('contextPath') +'import.do',  //No I18N
+                          uploadServerURL:  window.location.protocol + '//uploadserver.zoho.com/postservlet',    //No I18N
+                          fileOpenURL : "ropen.do?rid={0}"  //No I18N            
+                      },
+                      init: function(options){
+                          FCImport.options = $.extend({}, FCImport.options, options);
+                          FCImport.options.uploadURL = FComponents.option('contextPath') +'import.do';    //No I18N
+                      },
+                      open : function(options){
+                          if(!_dialogIsOpened){
+                              var importDialog = $('#'+_dialogId);    //No I18N
+                              if(importDialog.length){
+                                  importDialog.zdialog('close');  //No I18N
+                              }
+                              var importUI = $('#'+ _elementId);  //No I18N
+
+                              FCImport.options = $.extend({}, FCImport.options, options);
+
+                              importDialog = $('<div id="'+ _dialogId +'"></div>').appendTo($('body'));   //No I18N
+                              importUI = $('<div id="'+ _elementId +'"></div>').appendTo(importDialog);   //No I18N
+                              importDialog.zdialog({modal: true,minimizable: true});
+                              importUI.attr( 'ctype' , "zimport");    //No I18N
+                              var importOptions = {
+                                  errorMessages: FCImport.options.errorMessages,
+                                  supportedFileFormats: FCImport.options.fileFormats,
+                                  uploadServerStatus: FCImport.options.uploadServerStatus,
+                                  uploadServerURL: FCImport.options.uploadServerURL,
+                                  serviceType: FComponents.option('service'), //No I18N
+                                  allowedFileSize: parseInt(FCImport.options.maxSize),
+                                  passwordprotected: false,
+                                  uploadURL: FComponents.option('contextPath') +'import.do',  //No I18N
+                                  importLocalFileName: 'xfile',   //No I18N
+                                  password: 'password',   //No I18N
+                                  importURLFileName: 'importurl'  //No I18N
+                              };
+                              importUI.zimport(importOptions);
+                              importDialog.on('dialogopen', function(ev, ui){   //No I18N
+                                  _dialogIsOpened = true;
+                              });
+                              importDialog.zdialog('open');   //No I18N
+                              importDialog.on('dialogclose', function(ev, ui){   //No I18N
+                                  _dialogIsOpened = false
+                                  importDialog.remove();
+                              });
+                          }
+                      },
+                      close : function(){
+                          var importDialog = $('#'+ _dialogId);   //No I18N
+                          if(importDialog.length){
+                              importDialog.zdialog('close');  //No I18N
+                          }
+                      },
+                      updateImportStatus : function(importResponse){
+                          if(FCImport.options.uploadServerStatus){
+                              $('#'+ _elementId).zimport('showMessage','status',importResponse); //No I18N
+                          }
+                      },
+                      setErrorMessage: function(errorMessages){
+                          $('#'+ _elementId).zimport('setErrorMessage',errorMessages);    //No I18N
+                      },
+                      setImportResourceId : function(importResponse){
+                          if(FCImport.options.uploadServerStatus){
+                              $('#'+ _elementId).zimport('setImportResourceId', importResponse); //No I18N
+                          }
+                      },
+                      upload: function(file, fileObj, callbacks){
+                          var defaultInfo = {
+                              file: undefined,
+                              newName: "",    //No I18N
+                              password: ""    //No I18N
+                          }
+                          var uploadObj = $.extend({}, defaultInfo, {file: file, newName: fileObj.name });
+
+                          var handlecallbacks = {
+                              progress: function(serverResponse, per){
+                                  if(callbacks && callbacks.progress){
+                                      var responseObj = serverResponse;
+                                      if(typeof responseObj !== "object"){    //No I18N
+                                          responseObj = $.parseJSON(serverResponse);
+                                      }
+                                      callbacks.progress(responseObj, per);
+                                  }
+                              },
+                              success: function(serverResponse){
+                                  var responseObj = serverResponse;
+                                  if(typeof responseObj !== "object"){    //No I18N
+                                      responseObj = $.parseJSON(serverResponse);
+                                  }
+                                  if(callbacks){
+                                      if(responseObj.status === 'success' && callbacks.success){  //No I18N
+                                          callbacks.success(responseObj);
+                                      }
+                                      else if(callbacks.fail){
+                                          callbacks.fail(responseObj);
+                                      }
+                                  }
+                              },
+                              fail: function(serverResponse) {
+                                  if(callbacks && callbacks.fail){
+                                      var responseObj = serverResponse;
+                                      if(typeof responseObj !== "object"){    //No I18N
+                                          responseObj = $.parseJSON(serverResponse);
+                                      }
+                                      callbacks.fail(responseObj);
+                                  }
+                              }
+                          };
+                          var data = {
+                              docname: uploadObj.newName,    // need a extension with filename for serverside extension find
+                              password: uploadObj.password ? uploadObj.password : '',    //No I18N
+                              servicename: FComponents.option('service').toLowerCase()   //No I18N
+                          };
+                          if (window.FileReader && typeof file !== "string") {
+                              var checkSize = (file.get(0).files[0].size > this.options.allowedFileSize)? true: false ;
+                              if(!checkSize){
+                                  uploadObj.documentType = file.get(0).files[0].type;
+                              }
+                          }
+                          data[ FComponents.option('csrfParamName') ] = FCUtil.getCSRFToken();    //No I18N
+                          var importFromLocal = true;
+                          if(typeof file !== "string" && file.get(0) && file.get(0).files[0]){    //No I18N
+                              data.xfile = file;
+                              uploadObj.xfile = file;
+                              //uploadObj.password = fileObj.password;
+                              data.filetype = 'localfile';    //No I18N
+                          }
+                          else{
+                              importFromLocal = false;
+                              data.importurl = file;
+                              data.filetype = 'weburl';   //No I18N
+                          }
+                          if(fileObj.password !== '' && fileObj.password !== undefined){  //No I18N
+                              data.password = fileObj.password;
+                          }
+                          uploadObj = $.extend({}, uploadObj, this._checkFileExtn(uploadObj.newName, importFromLocal));            
+                          if(FCImport.options.uploadServerStatus && importFromLocal && this._checkAjaxUploadAndProgressEvents()){
+                              this._udServerUpload(uploadObj, handlecallbacks);
+                          }
+                          else{
+                              $.ajaxUpload( FCImport.options.uploadURL, data, handlecallbacks);
+                          }
+                      },
+                      _checkAjaxUploadAndProgressEvents: function(){
+                          var xhr = new XMLHttpRequest();
+                          return !! (xhr && ('upload' in xhr) && ('onprogress' in xhr.upload));   //No I18N
+                      },
+                      _checkFileExtn: function(fileName, importFromLocal){
+                          if(importFromLocal){
+                              fileName = fileName.substr(fileName.lastIndexOf('\\')+1);   //No I18N
+                          }
+                          var index = fileName.lastIndexOf('.');  //No I18N
+                          var index = (index > 0) ? index : fileName.length;
+                          var ext = fileName.substr(index);
+                          return {
+                              newName: fileName,
+                              fileExtn: (ext ? ext.toLowerCase() : undefined)
+                          };
+                      },
+                      _udServerUpload: function(filedetails, callbacks){
+
+                          var xhr = new XMLHttpRequest();
+                          var upload = xhr.upload;
+                          upload.fileIndex = 0;
+                          upload.fileName = encodeURIComponent(filedetails.newName);
+                          upload.downloadStartTime = new Date().getTime();
+                          upload.currentStart = upload.downloadStartTime;
+                          upload.currentProgress = 0;
+                          upload.startData = 0;
+
+                          this._uploadId = upload.fileIndex + "_new_" + $.now() + "_"; // NO I18N
+                          xhr.onreadystatechange = function(){
+                              if (xhr.readyState === 4 &&  xhr.status !== 200){
+                                  callbacks.fail(xhr);
+                              }
+                              else if (xhr.readyState === 1){
+                                  callbacks.progress(xhr);
+                              }
+                          };
+                          xhr.open("POST", FCImport.options.uploadServerURL, true); //No I18N
+                          xhr.setRequestHeader("Connection", "Keep-Alive");   //No I18N
+                          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");   //No I18N
+                          xhr.setRequestHeader("x-service", "EX");    //No I18N
+                          xhr.setRequestHeader("x-streammode","1");   //No I18N
+                          xhr.setRequestHeader("charset","utf-8");    //No I18N
+                          xhr.setRequestHeader("upload-id", this._uploadId);  //No I18N
+                          xhr.setRequestHeader("upload-from", FCImport.options.serviceType);  //No I18N
+                          xhr.setRequestHeader("x-filename", encodeURIComponent(filedetails.newName + filedetails.fileExtn));    //No I18N
+                          xhr.setRequestHeader("x-doc_conversion", true); //No I18N
+                          xhr.setRequestHeader("x-content_type", filedetails.documentType);   //No I18N
+                          xhr.setRequestHeader("x-uploadTo", 'myfolders');    //No I18N
+                          xhr.setRequestHeader("x-folderId", "-1");   //No I18N
+                          xhr.withCredentials = true;
+                          xhr.send(filedetails.xfile[0].files[0]);
+                      }
+                  };
+              })(jQuery);
+              (function($){
+                  $.ui.zimport.config = $.extend(true, $.ui.zimport.config, {
+                      importData: function(info){
+                          var data = {
+                              filetype : (info.importFromLocal ? 'localfile': 'weburl'),  //No I18N
+                              docname :  (info.documentName + info.fileExtn), // need a extension with filename for serverside extension find
+                              password : info.password ? info.password : '',
+                              servicename : FComponents.option('service').toLowerCase()   //No I18N
+                          };
+                          data[ FComponents.option('csrfParamName') ] = FCUtil.getCSRFToken();    //No I18N
+                          if(info.importFromLocal && info.urlEle){
+                                  data.xfile = info.urlEle;
+                          }
+                          else{
+                              if(info.web_url){
+                                  data.importurl = info.web_url;
+                              }
+                          }
+                          return data;
+                      },
+                      callbacks:{
+                          success: function(data, ui){
+                              var href = FCImport.options.fileOpenURL.replace("{0}", data.resinfo.rid);   //No I18N
+                              var target = '_blank'; //No I18N
+                              if ($.fcomponents.getCurrentDocStatus) {
+                                  var docstate = $.fcomponents.getCurrentDocStatus();
+                                  if (docstate === 0) {
+                                      target = "_self"; //No I18N
+                                  }
+                              }
+                              var element = ui.fileOpenElement;
+                              element.attr({'href': href, 'target': target});//no i18n
+                          },
+                          fail: function(data, ui){
+
+                          }
+                      }
+                  });
+                  $.fcomponents = {
+                      getCurrentDocStatus : function() {
+                          return 1;
+                      }
+                  };
+              })(jQuery);
+
+
+                                   </pre>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div> 
+    <div id="backtoTop-Btn" class="backtoTop-btn" title="Back to top">
+      <i class="icon">
+        <svg class="zc-black"> <use  xlink:href="#svg-backToTop-icon"> </use> </svg>
+      </i>
+    </div>
+  </div>
+
+  <!-- OVERLAYS & POPUP CONTENT -->    
+  <div id="zc-overlay-white" class="zc-overlay zc-overlayWhite">  
+    <button class="zc-btn zc-dialog-close icon zc-delete-close" title="Close">
+      <i class="icon">
+        <svg class="zc-black"> <use xlink:href="#svg-close-icon"> </use> </svg>
+      </i>
+    </button>
+    <!-- PROJECT SHARE -->
+    <div id="zc-project-share" class="zc-dialog zc-dialog-share">
+      <div class="zc-action-overlay"> </div>
+      <div class="zc-share-wrap">
+        <div class="zc-dialog-header">
+          <span class="zc-title"> Share Project</span>
+        </div>
+        <div class="zc-dialog-content zc-clearfix">
+          <div class="zc-row">
+            <div class="zc-field">
+              <input id="sharedUserName" type="text" class="zc-input token-input"/>
+              <select id="zc-share-permission" class="chosen-select-no-single" data-placeholder="Permission" title="User Permission">   
+                <option value=""></option>
+                <option value="Can Write">Can Write</option>
+                <option value="Can Read Only">Can Read Only</option>
+              </select>
+            </div>
+            <div id="add-cd-required" class="zc-field zc-hint-wrap" style="display:none">
+              <label class="zc-hint"> Add Co-developers to share the project.</label>
+            </div>
+          </div>
+          <div id="share-msg" class="zc-row">
+            <div class="zc-field">
+              <textarea placeholder="Message (optional)"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="zc-dialog-actions">
+          <button id="zc-share-btn" class="zc-btn zc-gradient"> Share </button>
+          <button id="zc-cancel-share" class="zc-btn zc-secondary"> Cancel </button>
+        </div>
+        <div class="zc-cd-wrap"> 
+          <div id="add-codeveloper" class="zc-row zc-hide">
+            <div class="zc-field">
+              <label class="zc-fleft">Already shared with</label>
+              <a id="manage-developer" class="manage-cd zc-fright" href="#"> Manage... </a> 
+            </div>	
+          </div>
+          <div class="shared-list-wrap-1 zc-hide"> </div>
+        </div>
+      </div>
+      <div id="manage-cd-list" class="zc-manage-dialog">
+        <div class="zc-dialog-header">
+          <span class="zc-title"> Co-developers </span>
+        </div>
+        <div class="zc-dialog-content zc-clearfix">
+          <div class="shared-list-wrap"> </div>
+        </div>
+        <div class="zc-dialog-actions">
+          <a id="manage-back-btn" href="#" class="zc-fright"> Back to Share </a>
+        </div>
+      </div>
+    </div>
+    <!-- PROJECT RENAME -->
+    <div id="zc-project-rename" class="zc-dialog">  
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Rename Project</span>
+      </div>
+      <div class="zc-dialog-content">
+        <div class="zc-field">
+          <label> Enter the new name:</label>
+          <input id="project-rename" type="text" class="zc-input"/>
+          <label class="zc-hint">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>
+      </div>
+      <div class="zc-dialog-actions">
+        <button class="zc-btn  zc-gradient zc-rename-ok"> OK </button>
+        <button  class="zc-btn zc-secondary zc-rename-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <div id="zc-project-rename-1" class="zc-dialog">
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Rename Project</span>
+      </div>
+      <div class="zc-dialog-content">
+        <div class="zc-field">
+          <label> Enter the new name:</label>
+          <input id="project-rename-1" type="text" class="zc-input"/>
+          <label class="zc-hint">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>
+      </div>
+      <div class="zc-dialog-actions">
+        <button class="zc-btn zc-gradient zc-rename-ok"> OK </button>
+        <button  class="zc-btn zc-secondary zc-rename-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <div id="zc-project-rename-2" class="zc-dialog">
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Rename Project</span>
+      </div>
+      <div class="zc-dialog-content">
+        <div class="zc-field">
+          <label> Enter the new name:</label>
+          <input id="project-rename-2" type="text" class="zc-input"/>
+          <label class="zc-hint">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>
+      </div>
+      <div class="zc-dialog-actions">
+        <button class="zc-btn zc-gradient zc-rename-ok"> OK </button>
+        <button  class="zc-btn zc-secondary zc-rename-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <div id="zc-project-rename-3" class="zc-dialog">
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Rename Project</span>
+      </div>
+      <div class="zc-dialog-content">
+        <div class="zc-field">
+          <label> Enter the new name:</label>
+          <input id="project-rename-3" type="text" class="zc-input"/>
+          <label class="zc-hint">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>
+      </div>
+      <div class="zc-dialog-actions">
+        <button class="zc-btn  zc-gradient zc-rename-ok"> OK </button>
+        <button  class="zc-btn zc-secondary zc-rename-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <!-- PROJECT DELETE -->
+    <div id="zc-project-delete" class="zc-dialog zc-dialog-delete">
+
+      <div class="zc-dialog-wrap">	
+        <div class="zc-dialog-header">
+          <span class="zc-title"> Delete Project</span>
+        </div>
+        <div class="zc-dialog-content">
+
+          <div class="zc-alert zc-warning-msg zc-large">
+            <span class="zc-alert-icon"><span class="icon-32">
+              <svg class="zc-red"> <use  xlink:href="#svg-delete-icon"> </use> </svg>
+              </span></span> 
+            <span class="zc-alert-content"> This is a permanent action. Once you delete a project, you cannot get it back. Also, all co-developers cannot access the project further. </span>
+          </div>
+          <div class="zc-field">
+            <label> To delete the project, enter <span class="zc-font-bold zc-captcha-text"> Zoho Docs </span> below and confirm your action.</label>
+            <input id="captchafield" type="text" class="zc-input"/>
+            <label class="zc-hint zc-hide">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+          </div>         
+        </div>
+        <div class="zc-dialog-actions">
+          <button id="confirm-delete" class="zc-btn zc-gradient disabled"> Delete </button>
+          <button class="zc-btn zc-secondary zc-delete-cancel"> Cancel </button>
+        </div>
+      </div>
+    </div>
+    <div id="zc-project-delete-1" class="zc-dialog zc-dialog-delete">
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Delete Project</span>
+      </div>
+      <div class="zc-dialog-content">
+
+        <div class="zc-alert zc-warning-msg zc-large">
+          <span class="zc-alert-icon"><span class="icon-32">
+            <svg class="zc-red"> <use  xlink:href="#svg-delete-icon"> </use> </svg>
+            </span></span> 
+          <span class="zc-alert-content"> This is a permanent action. Once you delete a project, you cannot get it back. The co-developer cannot be accessed anymore. </span>
+        </div>
+        <div class="zc-field">
+          <label> To delete this project, type <span class="zc-font-bold zc-captcha-text">Gateway GPS 2016 </span> in the textfield to confirm your action</label>
+          <input id="captchafield-1" type="text" class="zc-input"/>
+          <label class="zc-hint zc-hide">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>         
+      </div>
+      <div class="zc-dialog-actions">
+        <button id="confirm-delete-1" class="zc-btn zc-gradient disabled"> Delete </button>
+        <button class="zc-btn zc-secondary zc-delete-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <div id="zc-project-delete-2" class="zc-dialog zc-dialog-delete">
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Delete Project</span>
+      </div>
+      <div class="zc-dialog-content">
+
+        <div class="zc-alert zc-warning-msg zc-large">
+          <span class="zc-alert-icon"><span class="icon-32">
+            <svg class="zc-red"> <use  xlink:href="#svg-delete-icon"> </use> </svg>
+            </span></span> 
+          <span class="zc-alert-content"> This is a permanent action. Once you delete a project, you cannot get it back. The co-developer cannot be accessed anymore. </span>
+        </div>
+        <div class="zc-field">
+          <label> To delete this project, type <span class="zc-font-bold zc-captcha-text">Gateway GPS 2016 </span> in the textfield to confirm your action</label>
+          <input id="captchafield-2" type="text" class="zc-input"/>
+          <label class="zc-hint zc-hide">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>         
+      </div>
+      <div class="zc-dialog-actions">
+        <button id="confirm-delete-2" class="zc-btn zc-gradient disabled"> Delete </button>
+        <button class="zc-btn zc-secondary zc-delete-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <div id="zc-project-delete-3" class="zc-dialog zc-dialog-delete">
+      <div class="zc-dialog-header">
+        <span class="zc-title"> Delete Project</span>
+      </div>
+      <div class="zc-dialog-content">
+
+        <div class="zc-alert zc-warning-msg zc-large">
+          <span class="zc-alert-icon"><span class="icon-32">
+            <svg class="zc-red"> <use  xlink:href="#svg-delete-icon"> </use> </svg>
+            </span></span> 
+          <span class="zc-alert-content"> This is a permanent action. Once you delete a project, you cannot get it back. The co-developer cannot be accessed anymore. </span>
+        </div>
+        <div class="zc-field">
+          <label> To delete this project, type <span class="zc-font-bold zc-captcha-text">Gateway GPS 2016 </span> in the textfield to confirm your action</label>
+          <input id="captchafield-3" type="text" class="zc-input"/>
+          <label class="zc-hint zc-hide">Can contain alphabets, numbers, hyphens (-), and underscores (_).</label>
+        </div>         
+      </div>
+      <div class="zc-dialog-actions">
+        <button id="confirm-delete-3" class="zc-btn zc-gradient disabled"> Delete </button>
+        <button class="zc-btn zc-secondary zc-delete-cancel"> Cancel </button>
+      </div>
+
+    </div>
+    <!-- CONFIRM OVERLAY -->
+    <div class="zc-confirm-overlay">
+      <!-- Confirmation Dialog -->
+      <div id="remove-share-confirm" class="zc-dialog zc-confirm">
+        <div class="zc-dialog-header">
+          <i class="zc-toast-icon icon-24">
+            <svg class="zc-darkOrange"> <use xlink:href="#svg-warning-icon"> </use> </svg> 
+          </i>
+          <span class="zc-title"> Remove Share </span>
+        </div>
+
+        <div class="zc-dialog-content">
+          <div class="zc-dialog-msg msg-primary-text">Are you sure you want to remove sharing for this user? </div>
+        </div>
+
+        <div class="zc-dialog-actions">
+          <button id="rs-confirm-yes" class="zc-btn zc-btn-small zc-gradient"> Yes </button>
+          <button id="rs-confirm-no" class="zc-btn zc-btn-small zc-secondary"> No </button>
+        </div>
+
+      </div>  
+    </div>
+  </div>
+
+  <!-- PROJECT SHARE SUCCESS TOAST MESSAGE -->
+  <div id="project-share-success" class="zc-toast-message zc-toast-success">
+    <i class="zc-toast-icon icon-24"> 
+      <svg class="zc-white"> <use xlink:href="#svg-success-icon"> </use> </svg> 
+    </i>
+    <span class="zc-toast-text">  The project has been shared successfully.</span>
+  </div>
+
+  <!-- Hover Card -->
+  <div  class="zc-hovercard zc-hovercard-top">
+    <div class="zc-card-wrap">
+      <img class="zc-user-image" src="../images/user-1.png"/>
+      <div class="zc-hovercard-header"> 
+        <h1>James Anderson</h1>
+        <span class="zc-email"> jamesanderson@gmail.com </span>
+        <span class="zc-permission"> read and write </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPOVER -->
+  <div id="zc-useraccount-help" style="display: none;"> 
+    <p> This is your unique identification number in Zoho.  </p> 
+    <p> It will be handy for you to identify yourself to our customer support executive, say when you seek our assistance through our Toll Free number. </p>
+  </div>
+  <div id="zc-notification-popover" class="zc-notifi" style="display: none;">
+    <div class="zc-notifi-pane">
+      <ul>
+        <li> 
+          <a class="notify-unread">
+            <span class="zc-user-pic"> <img src="../images/user-5.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name"> Bruce Armstrong </span>shared GPS_Technology project with you.</span> 
+              <span class="notifi-time">Few seconds ago</span>
+            </span>
+
+          </a>
+        </li>
+        <li> 
+          <a class="notify-unread">
+            <span class="zc-user-pic"> <img src="../images/user-1.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name">Johnny Walker  </span>has mentioned you in a 
+                comment in config.js. </span> 
+              <span class="notifi-time"><span class="project-name">Zoho_Docs</span>  4 minutes ago</span>
+            </span>
+
+          </a>
+        </li>
+        <li> 
+          <a>
+            <span class="zc-user-pic"> <img src="../images/user-5.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name"> Bruce Armstrong </span>replied to your comment in 
+                application.js.</span> 
+              <span class="notifi-time"><span class="project-name">Document_Management</span> 15 minutes ago</span>
+            </span>
+
+          </a>
+        </li>
+        <li> 
+          <a>
+            <span class="zc-user-pic"> <img src="../images/user-8.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name"> Madison </span>commented in config_build_doc.html.</span> 
+              <span class="notifi-time"><span class="project-name">SDP_Live</span>  2 hours ago</span>
+            </span>
+
+          </a>
+        </li>
+        <li> 
+          <a class="notify-unread">
+            <span class="zc-user-pic"> <img src="../images/user-5.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name"> Bruce Armstrong </span>requests for write permission in Document_Management.</span> 
+              <span class="notifi-time">Oct 24, 5:21 PM</span>
+            </span>
+
+          </a>
+        </li>
+        <li> 
+          <a>
+            <span class="zc-user-pic"> <img src="../images/user-2.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name"> Ann Tran </span>reopened a comment in application.js.</span> 
+              <span class="notifi-time"><span class="project-name">GPS_Solution</span>  Oct 23, 5:21 PM</span>
+            </span>
+
+          </a>
+        </li>
+        <li> 
+          <a>
+            <span class="zc-user-pic"> <img src="../images/user-9.png"></span>
+            <span class="notifi-cont"> 
+              <span class="notifi-msg"> <span class="user-name"> Jackson </span>resolved a comment in application.js.</span> 
+              <span class="notifi-time"><span class="project-name">GPS_Solution</span>  Oct 21, 3:11 AM</span>
+            </span>
+
+          </a>
+        </li>
+      </ul>
+      <div class="zc-empty-state zc-hide">
+        <div class="zc-empty-image empty-notification">
+        </div>
+        <h2>You don’t have any notification yet. </h2>
+        <p>When you are mentioned in a comment, invited to collaborate, added new comment or reply your comment, you will see it here. </p>
+      </div>
+    </div>
+  </div>
+  <div id="zc-more-cd-popover" class="zc-more-cd" style="display: none;"> 
+    <div class="more-shared-list"> 
+      <ul>
+        <li data-name="ayyasami.t" data-mail="ayyasami.t@zohocorp.com" data-permission="Can Write" data-issue="10" data-commits="5"> <img src="../images/ays.jpg"> <span class="zc-user-info"><span class="zc-user-name">ayyasami.t</span><span class="zc-user-mail">ayyasami.t@zohocorp.com</span> <span class="zc-user-permission">Can Write</span> </span></li>
+
+        <li data-name="gjayakrishnan" data-mail="gjayakrishnan@zohocorp.com" data-permission="Can Write" data-issue="10" data-commits="5"> <img src="../images/jk.jpg"> <span class="zc-user-info"><span class="zc-user-name">gjayakrishnan</span><span class="zc-user-mail">gjayakrishnan@zohocorp.com</span> <span class="zc-user-permission">Can Write</span> </span></li> 
+
+        <li data-name="manojkumar.viswanathan" data-mail="manojkumar.viswanathan@zohocorp.com" data-permission="Can Write" data-issue="6" data-commits="2"> <img src="../images/manoj.png"> <span class="zc-user-info"><span class="zc-user-name">manojkumar.viswanathan</span><span class="zc-user-mail">manojkumar.viswanathan@zohocorp.com</span> <span class="zc-user-permission">Can Write</span> </span></li> 
+
+        <li data-name="ram" data-mail="ram@zohocorp.com" data-permission="Can Read Only" data-issue="6" data-commits="2"> <img src="../images/kumar.jpg"> <span class="zc-user-info"><span class="zc-user-name">ram</span><span class="zc-user-mail">ram@zohocorp.com</span> <span class="zc-user-permission">Can Read Only</span> </span></li> 
+
+
+        <li data-name="ramkumar.g" data-mail="ramkumar.g@zohocorp.com" data-permission="Can Write" data-issue="3" data-commits="16"> <img src="../images/ram.jpg"> <span class="zc-user-info"><span class="zc-user-name">ramkumar.g</span><span class="zc-user-mail">ramkumar.g@zohocorp.com</span> 
+          <span class="zc-user-permission">Can Write</span></span></li> 
+
+
+        <li data-name="vinothkumar.kp" data-mail="vinothkumar.kp@zohocorp.com" data-permission="Can Read Only" data-issue="3" data-commits="16"> <img src="../images/vinoth.png"> <span class="zc-user-info"><span class="zc-user-name">vinothkumar.kp</span><span class="zc-user-mail">vinothkumar.kp@zohocorp.com</span> 
+          <span class="zc-user-permission">Can Read Only</span></span></li> 
+
+
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- MENU -->
+  <div id="sort-menu" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true data-direction="bottom-left">
+    <ul>
+      <li data-item-type='custom' class="zmenu__item"> 
+        <i class="zmenu__icon"></i>
+        <span class="zmenu__text">Name</span>
+        <span class="zc-custom-btn">
+          <button class="zc-btn zc-secondary"> <span class="zd-button-text"> A-Z</span> </button>
+          <button class="zc-btn zc-secondary"> <span class="zd-button-text"> Z-A </span> </button>
+        </span>
+      </li>
+
+      <li data-item-type='custom' class="zmenu__item">
+        <i class="zmenu__icon zc-tick-icon">
+          <svg class="zc-black"> <use xlink:href="#svg-tick-icon"> </use> </svg>
+        </i>
+        <span class="zmenu__text">Last Modified</span>
+      </li>
+
+      <li data-item-type='custom' class="zmenu__item"> 
+        <i class="zmenu__icon"></i>
+        <span class="zmenu__text">Last Opened by Me</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- HELP MENU -->
+  <div id="help-menu" style="display:none;"data-ctype="zmenu" data-content-type="text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li> Help</li>
+      <li> FAQs</li>
+      <li> What's New</li>
+      <li> Take a Tour</li>
+      <li data-item-type="separator"></li>
+      <li> Keyboard Shortcuts</li>
+      <li data-item-type="separator"></li>
+      <li> About Zoho Code </li>
+      <li> Blogs </li>
+      <li data-item-type="separator"></li>
+      <li> Forums </li>
+      <li> Support </li>
+
+    </ul>
+  </div>
+
+  <!-- USER ACCOUNT MENU -->
+  <div class="zc-user-account"> 
+    <div class="zc-account-header"> 
+      <span class="zc-user-pic">   <img src="../images/user-img.jpg">   </span> </div>			
+    <div class="zc-user-info">
+      <span class="ide-user-name"> James Anderson </span>
+      <span class="ide-user-mail"> Jamesanderson@zohocorp.com </span>
+      <span class="ide-user-mail">User ID: 987635421 
+        <span id="useraccount-help-icon" class="icon-12">
+          <svg class="zc-grey"> <use xlink:href="#svg-help-icon"> </use> </svg>
+        </span>
+      </span>
+      <button id="signout-btn" class="zc-btn zc-secondary zc-btn-small"> Sign Out </button>
+    </div>
+    <div class="zc-user-menu">
+      <ul class="zc-setting-info">
+        <li> <span class="zc-list-text">My Account </span>  </li>
+        <li id="my-portals"> <span class="zc-list-text">My Portals </span>  <span class="zc-sublist-arrow">
+          <i class="icon-9 icon-secondary"><svg class="zc-dark"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrowRight-icon"> </use> </svg> </i>
+          </span> </li>
+      </ul>
+      <div class="zc-user-subnav"> 
+        <ul>
+          <li class="menu-header" id="back-to-info"> 
+            <span class="zc-list-icon">
+              <svg class="zc-black"> <use xlink:href="#svg-back-icon"> </use> </svg>
+            </span>
+            <span class="zc-list-text">My Portals </span>  
+          </li>
+          <li><span class="zc-list-icon">
+            <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+            </span> <span class="zc-list-text">Smart Soln </span>  </li>
+          <li><span class="zc-list-icon zc-tick-icon">
+            <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+            </span> <span class="zc-list-text">Zoho Partner Network </span> </li>
+          <li> <span class="zc-list-icon">
+            <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+            </span><span class="zc-list-text">Zoho Motivator </span> </li>
+          <li> <span class="zc-list-icon">
+            <svg class="zc-green"> <use xlink:href="#svg-circletick-icon"> </use> </svg>
+            </span><span class="zc-list-text"> DC Partner Network </span> </li>
+        </ul>
+      </div>	
+    </div>	
+    <div class="zc-account-footer"> 
+      This code account is owned by Stephen 
+    </div>
+  </div>
+
+  <!-- PROJECT ACTIONS -->		
+  <div id="project-action" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code" data-icon="#svg-source-icon zc-green">Browse Files</li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT ACTIONS -->
+  <div id="project-action-1" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info-1" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code-1" data-icon="#svg-source-icon zc-green">Browse Files </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename-1">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project-1" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT ACTIONS -->
+  <div id="project-action-2" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info-2" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code-2" data-icon="#svg-source-icon zc-green">Browse Files </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename-2">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project-2" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT ACTIONS -->
+  <div id="project-action-3" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info-3" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code-3" data-icon="#svg-source-icon zc-green">Browse Files </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename-3">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project-3" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT ACTIONS -->
+  <div id="project-action-4" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info-4" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code-4" data-icon="#svg-source-icon zc-green">Browse Files </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename-4">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project-4" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT ACTIONS -->
+  <div id="project-action-5" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info-5" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code-5" data-icon="#svg-source-icon zc-green">Browse Files </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename-5">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project-5" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT ACTIONS -->
+  <div id="project-action-6" style="display:none;" data-ctype="zmenu" data-content-type="icon-text" data-pointer=true class="animate-fadedown">
+    <ul>
+      <li id="zc-project-info-6" data-icon="#svg-projectinfo-icon zc-blue"> View Info </li>
+      <li id="zc-source-code-6" data-icon="#svg-source-icon zc-green">Browse Files</li>
+      <li data-item-type="separator"></li>
+      <li id="zc-rename-6">Rename... </li>
+      <li data-item-type="separator"></li>
+      <li id="zc-share" data-icon="#svg-share-icon zc-orange">Share... </li>
+      <li data-icon="#svg-download-icon zc-grey">Download as Zip </li>
+      <li data-item-type="separator"></li>
+      <li id="delete-project-6" data-icon="#svg-delete-icon zc-red"> Delete Project...</li>
+    </ul>
+  </div>
+
+  <!-- PROGRESSBAR IN TOP  -->
+  <div id="Lineprogressbar" class="line-progressbar">
+    <span class="shadow"> </span>
+  </div>
+
+  <!-- JS -->
+
+  <!-- MAIN JS -->   
+  <script src="../js/main.js" type="text/javascript"> </script>     
+
+  <!-- CUSTOM COMPONENT JS -->   
+  <script src="../js/component-custom.js" type="text/javascript"> </script>  
+
+  <!-- BOOTSTRAP JS -->
+  <script type="text/javascript" src="../third-party/bootstrap/bootstrap.js"></script>    
+
+  <!-- ZMENU -->
+  <script src="../third-party/ui-components/js/zcomponents.js" type="text/javascript"> </script> 
+  <script src="../third-party/ui-components/js/zposition.js" type="text/javascript"> </script> 
+  <script src="../third-party/ui-components/js/zeventhandler.js" type="text/javascript"></script>
+  <script src="../third-party/ui-components/js/zmenu.js" type="text/javascript"> </script>     
+
+  <!-- ZAutoSuggest -->
+  <script type="text/javascript" src="../third-party/ui-components/js/zsuggestfield.js"></script>
+<!--  <script type="text/javascript" src="../third-party/ui-components/js/zautocomplete.js"></script>-->
+<!--  <script type="text/javascript" src="../third-party/ui-components/js/zsortable.js"></script>-->
+
+  <!-- ZTOKENFIELD -->
+  <script type="text/javascript" src="../third-party/ui-components/js/ztokenfield.js"></script>
+
+  <!-- ZTOOLTIP -->
+  <script src="../third-party/ui-components/js/ztooltip.js" type="text/javascript" ></script>
+
+  <!-- ZPOPOVER -->
+  <script src="../third-party/ui-components/js/zfocushandler.js" type="text/javascript"></script>
+  <script src="../third-party/ui-components/js/zpopover.js" type="text/javascript"></script>
+
+  <!-- HIGHCHARTS -->
+  <script src="../third-party/highcharts/highcharts.js" type="text/javascript" ></script>
+  <script src="../third-party/highcharts/no-data-display.js" type="text/javascript" ></script>
+
+  <!-- ZSCROLL -->
+  <!-- <script src="../third-party/ui-components/js/ui.zscroll.js" type="text/javascript" ></script>-->
+
+  <!-- ACE EDITOR JS -->
+  <script src="../ide/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"> </script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/chrome");
+    editor.session.setMode("ace/mode/javascript");
+    editor.session.setUseWrapMode(true); // LINE WRAP MODE
+    editor.setShowPrintMargin(false);
+    editor.setOption("highlightActiveLine", false);
+    editor.setOptions({
+      fontSize: "14px"
+    });
+    var Range = ace.require('ace/range').Range;
+    editor.setReadOnly(true);
+    editor.getSession().setMode("ace/mode/javascript");
+    setTimeout(function() {
+      editor.session.addMarker(new Range(4, 5, 8, 5), "foo", "line");
+      editor.session.addMarker(new Range(14, 5, 16, 5), "foo", "line");
+    }, 100);
+  </script>
+
+  <!-- CHOSEN JS -->
+  <script src="../third-party/chosen/chosen.jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+    $(document).ready(function(){ 
+      $("body").ztooltip({
+        pointer  : false
+      });
+      $("#myTab li:eq(0) a").tab('show');
+      $("#chooseCloud li:eq(0) a").tab('show');  
+      $("#sharedUserName").ztokenfield({
+        dataMapping: { "value": "email", "text": "name", "itemIdentifier": "name", "informativeText": "email", "image": "imageURL"},
+        placeholder: "Enter name or email address",
+        dataSource: {
+          "URL": "../third-party/ui-components/json/data.json",
+          "type": "GET",
+          "dataType": "json",
+          success: function(data, params){
+            return {
+              "results": data
+            }
+          }
+        },
+        isResponseFiltered: false,
+        tokens: {
+          contentType: "image-text",
+         
+        },
+        dataValidation: true,
+        dropdownList: {contentType: "image-text-desc",
+                       width: 428,
+                       highlightKeyword: true,
+                      showNoResultsMessage:true
+        },
+        search: {
+          by: "name",
+        },
+        
+        "messages": { 
+          "noResults": "No results found for #query#"
+        },
+        
+        className: "container"
+      });
+      //INIT ZMENU 
+      ZComponents.init();
+    });
+  </script>
+
+  <!-- INCLUDE SVG TEMPLATE -->
+  <script>
+    $("#svg-template").load("html-templates/svg.html");
+  </script>
+
+</body>
+</html>
